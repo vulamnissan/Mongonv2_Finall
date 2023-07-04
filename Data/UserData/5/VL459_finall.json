@@ -1,0 +1,70 @@
+{
+    "simulator_text_00001": {
+        "content": "content_Aconitum",
+        "display": "Text_1",
+        "layout": "",
+        "us": "",
+        "US English": {
+            "text": "Aconitum1",
+            "result": "OK",
+            "reason": "",
+            "word": "OK",
+            "over": "OK"
+        },
+        "Japanese": {
+            "text": "",
+            "result": "NG",
+            "reason": "",
+            "word": "LAM",
+            "over": "OK"
+        },
+        "Arabic": {
+            "text": "\u0627\u0644\u0628\u064a\u0634 3",
+            "result": "OK",
+            "reason": "",
+            "word": "OK",
+            "over": "OK"
+        },
+        "BrazilianPortuguese": {
+            "text": "\u05d0\u05e7\u05d5\u05e0\u05d9\u05d8\u05d5\u05dd3",
+            "result": "OK",
+            "reason": "",
+            "word": "OK",
+            "over": "OK"
+        }
+    },
+    "simulator_text_00003": {
+        "content": "content_Agapanthus",
+        "display": "Text_5",
+        "layout": "",
+        "us": "",
+        "US English": {
+            "text": "Agapanthus1",
+            "result": "OK",
+            "reason": "",
+            "word": "OK",
+            "over": "OK"
+        },
+        "Japanese": {
+            "text": "\u30a2\u30ac\u30d1\u30f3\u30b5\u30b91",
+            "result": "OK",
+            "reason": "",
+            "word": "OK",
+            "over": "OK"
+        },
+        "Arabic": {
+            "text": "\u0623\u063a\u0627\u0628\u0627\u0646\u062b\u0648\u0633 1",
+            "result": "OK",
+            "reason": "",
+            "word": "OK",
+            "over": "OK"
+        },
+        "BrazilianPortuguese": {
+            "text": "\u05d0\u05d2\u05e4\u05e0\u05d8\u05d5\u05e11",
+            "result": "OK",
+            "reason": "",
+            "word": "OK",
+            "over": "OK"
+        }
+    }
+}

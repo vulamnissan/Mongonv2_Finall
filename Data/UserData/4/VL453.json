@@ -1,0 +1,12 @@
+{
+    "validator": {
+        "name": "aaa",
+        "sect": "aaa",
+        "mail": "aaa"
+    },
+    "mgr": {
+        "name": "bbb",
+        "sect": "bbb",
+        "mail": "bbb"
+    }
+}

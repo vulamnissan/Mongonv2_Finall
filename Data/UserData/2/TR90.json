@@ -1,0 +1,151 @@
+{
+    "translation_request": {
+        "simulator_text_00001": {
+            "language": {
+                "US_English": {
+                    "content": "Aconitum",
+                    "ver": "1"
+                },
+                "Japanese": {
+                    "content": "1",
+                    "ver": "1"
+                },
+                "Arabic": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "BrazilianPortuguese": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "British": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "CanadianFrench": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "Chinese": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "Czech": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "Danish": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "Dutch": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "Finnish": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "French": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "German": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "Greek": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "Hungarian": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "Italian": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "Korea": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "MexicanSpanish": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "Norwegian": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "Polish": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "Portuguese": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "Russian": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "Slovak": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "Spanish": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "Swedish": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "Taiwanese": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "Thai": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "Turkish": {
+                    "content": "0",
+                    "ver": "1"
+                },
+                "Ukrainian": {
+                    "content": "0",
+                    "ver": "1"
+                }
+            },
+            "content": "content_Aconitum",
+            "display_type": "Text_1",
+            "number_line": "1",
+            "layout": "",
+            "limit_lenght": "425"
+        }
+    },
+    "password": "",
+    "creator": {
+        "name": "VuLam",
+        "sect": "abcdgroup",
+        "mail": "knt19203@local.nmcorp.nissan.biz",
+        "company": "NISSAN"
+    },
+    "mgr": {
+        "name": "",
+        "sect": "",
+        "mail": "",
+        "company": ""
+    },
+    "translator": {
+        "name": "",
+        "sect": "",
+        "mail": "",
+        "company": ""
+    },
+    "deadline": "",
+    "user": "2",
+    "date": "26\/6\/2023"
+}

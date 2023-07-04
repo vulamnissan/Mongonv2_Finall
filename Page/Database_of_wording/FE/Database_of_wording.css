@@ -1,0 +1,499 @@
+html,body{
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #252525;
+    display: flex;
+    flex-direction: column;
+  }
+header{
+  display: flex;
+  height: 53px;
+  padding-top: 15px;
+}
+/* -------------------------------------css for bell and account-------------------------------- */
+
+.icon-button__badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 25px;
+  height: 25px;
+  background: red;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+/* -------------------------------------css for bell and account-------------------------------- */
+#account-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #252525;
+  border: none;
+  color: #e94801;
+  width: fit-content;
+  margin-left: 20px;
+  margin-right: 10px;
+  font-size: 150%;
+  margin-left: auto;
+}
+#account-button:hover{
+  cursor: pointer;
+
+}
+.notification-list-acc {
+  color: #ffffff;
+  display: none;
+  font-size: 14px;
+  position: absolute;
+  top: 6%;
+  right: 0;
+  width: fit-content;
+  background-color:#323232;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: -1px 2px 12px 1px #000000;
+  z-index: 4;
+
+}
+
+.notification-list-acc p {
+  font-size: 14px;
+  margin-right: auto;
+  width: fit-content;
+}
+.notification-list-acc button {
+  margin-top: 20px;
+  background: none;
+  color: #e94801;
+  border: none;
+  text-align: right;
+  width: 100%;
+}
+.notification-list-acc button:hover{
+cursor: pointer;
+}
+/* -------------------------------------css for bell and account-------------------------------- */
+
+/* ---------------------------CSS for sidebar---------------------------------- */
+  .sidebar {
+    z-index: 4;
+    width: 250px;
+    background-color: #323232;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -208px; /* ẩn thanh menu bên trái */
+    transition: left 0.3s ease;
+    box-shadow: 6px 2px 12px 1px #000000;
+  }
+
+  .sidebar.open {
+    left: 0; /* hiển thị thanh menu bên trái */
+  }
+.menu{
+  z-index: 5;
+    color: #e94801;
+  }
+
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 50px;
+    margin-left: 30px;
+  }
+
+  .sidebar ul li {
+    cursor: pointer;
+    padding: 10px;
+    /* border-bottom: 1px solid #ccc; */
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color:  #ffffff;
+  }
+
+  .sidebar ul li a:hover {
+    color:#e94801;
+    font-weight: bold;
+  }
+
+  .content {
+    margin-left: 250px;
+    padding: 20px;
+  }
+
+  .menu {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+/* ---------------------------CSS for sidebar---------------------------------- */
+
+ /* --------------------------------------------------------------------------------Database of wording------------------------------------------------------------------------ */
+ #wraper_Validator_Status{
+  display:flex;
+ }
+
+ h1{
+  margin-top: 0px;
+  margin-bottom: 5px;
+  color: #ffffff;
+  margin-left: 90px;
+  font-size: 50px;
+  font-weight: 1000;
+ }
+ h2{
+  width: 100%;
+  background-color: #1F4E78;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1px;
+ }
+ h3{
+  border-top: 0.5px solid #ffffff;
+  color: #ffffff;
+  margin-left: 50px;
+  font-size: 15px;
+  font-weight: 1000;
+  margin-top: 20px;
+ }
+ #Validator_Status_content{
+  margin-left: auto;
+  margin-right: 30px;
+  width: 20%;
+
+ }
+ .grid-container {
+  background-color:#252525;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: repeat(3, auto);
+  gap: 1px; /* Khoảng cách giữa các hộp */
+}
+
+.boxvs {
+  color:#ffffff;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  padding: 10px;
+  height: 2px;
+}
+
+.boxvs:nth-child(odd) {
+  grid-column: 1; /* Chỉ định cột 1 cho các hộp lẻ */
+}
+
+.boxvs:nth-child(even) {
+  grid-column: 2; /* Chỉ định cột 2 cho các hộp chẵn */
+}
+#btn_Information_about_TEXT_ID{
+  font-size: larger;
+  width: fit-content;
+  background-color: #252525;
+  border-radius: 10px;
+  border: 1px solid #D0CECE;
+  padding: 10px 20px;
+  color: #e94801;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 90px;
+  font-weight: 800;
+}
+#btn_Information_about_TEXT_ID:hover {
+
+  background-color: #e94801;
+  color: #000000;
+
+}
+#btn_back_to_home{
+  margin-left: 100px;
+  margin-top: 10px;
+  height: fit-content;
+  font-size: 15px;
+  background-color: #e94801;
+  color: #ffffff;
+  border-radius: 5px;
+  border: none;
+}
+#btn_back_to_home:hover {
+  cursor: pointer;
+  background-color: #e94801;
+  color: #000000;
+
+}
+
+#Wraper_table_Database_of_wording{
+  position: relative;
+  table-layout: fixed;
+  white-space: nowrap;
+  overflow: auto;
+  margin-top: 20px;
+  background-color: #ccc;
+  display: flex;
+  width: auto;
+  flex-grow: 1;
+  margin-left: 70px;
+  margin-right: 30px;
+  height: 580px;
+  border: 1px solid #571C01;
+  table-layout: fixed;
+  z-index: 3;
+}
+#Database_of_wording_content{
+  flex: 1; /* Chiều cao tự mở rộng để điền vào không gian còn lại */
+  background-color: #252525;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+  }
+/* -------------------------CSS for table--------------------------------- */
+ table {
+  table-layout: fixed;
+  border-collapse:separate;
+  border-spacing: 0px;
+  color: #ffffff;
+  box-sizing: border-box;
+ 
+
+}
+.blank{
+  background-color: #FFFF00;
+}
+.full{
+  background-color: #548235;
+
+}
+.normal{
+  background-color: #7A2600;
+}
+td input[type="text"] {
+
+  overflow-wrap: break-word;
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  outline: none;
+  background:none;
+  font-family: inherit;
+  font-size: inherit;
+  color: #ffffff;
+}
+tr td:nth-child(11) input[type="text"] {
+
+  overflow-wrap: break-word;
+  width: fit-content;
+  height: 50px ;
+  border: none;
+  outline: none;
+  background:#FFFF00;
+  font-family: inherit;
+  font-size: inherit;
+  color: #ffffff;
+}
+th, td {
+  position: relative;
+  box-sizing: border-box;
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #571C01;
+  text-align: center;
+}
+ td{
+
+  background-color: #252525;
+ 
+}
+
+th {
+
+  /* border-top: 0px; */
+  background-color: #191919;
+} 
+
+.sticky-thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+
+}
+th#th_check{
+  /* border-left: 0px; */
+  position: sticky;
+
+  left: 0;
+  z-index: 2;
+}
+td:first-child{
+/* border-left: 0px; */
+position: sticky;
+left: 0;
+z-index: 1;
+}
+th#th_textid {
+
+  position: sticky;
+  left: var(--a);
+  z-index: 2;
+}
+td:nth-child(2) {
+  z-index: 1;
+position: sticky;
+left: var(--a);
+
+}
+th#th_ver{
+  position: sticky;
+  left: var(--b);
+  z-index: 2;
+}
+td:nth-child(3) {
+ z-index: 1;
+position: sticky;
+left: var(--b);
+
+}
+
+th#th_eng{
+
+  position: sticky;
+
+  left: var(--c);
+  z-index: 2;
+}
+th#th_text{
+ 
+  position: sticky;
+  left: var(--c);
+  z-index: 2;
+}
+td:nth-child(4) {
+  z-index: 1;
+position: sticky;
+left: var(--c);
+
+}
+#myTable_Database_of_wording thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+
+}
+/* .sticky-thead::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 99%;
+  background-color: #571C01;
+  z-index: -2;
+  border-top: 0px;
+} */
+
+/* -------------------------CSS for table--------------------------------- */
+
+  @media only screen and (max-width: 1600px) {
+    #Wraper_table_Database_of_wording{
+     
+      height: 550px;
+
+    }
+  }
+  @media only screen and (max-width: 1366px) {
+   h1{
+     
+      font-size: 20px;
+
+    }
+    #btn_Information_about_TEXT_ID {
+      font-size: 6px;
+
+    }
+    #Wraper_table_Database_of_wording {
+      height: 440px;
+  }
+
+  }
+  @media only screen and (max-width: 2560px) {
+
+
+    #wraper_Validator_Status{
+      margin-right: 30px;
+    }
+    #Wraper_table_Database_of_wording{
+     width: 92%;
+      height: 490px;
+  
+    }
+    th, td {
+
+      border: 1.5px solid #571C01 !important;
+
+    }
+    /* th:first-child::after{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: var(--h);
+      width: var(--d);s
+      height: 100%;
+      background-color:#571C01;
+      z-index: -1;
+    }
+    td:first-child::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: var(--h);
+      width: var(--d);
+      height: 100%;
+      background-color: #571C01;
+      z-index: -1;
+    }  */
+  
+
+      }
+@media only screen and (max-width: 3840px) {
+  
+}
+#myTable_Database_of_wording td:first-child::after {
+  background-color: #252525;
+  width: 110%;
+  height: 110%;
+  content: "";
+  font-weight: bold;
+  z-index: -1;
+  position: absolute;
+  display: flex;
+  top: 0px;
+  left: 0px;
+}
+#myTable_Database_of_wording th:first-child::after {
+  background-color: #191919;
+  width: 103%;
+  height: 100%;
+  content: "";
+  font-weight: bold;
+  z-index: -1;
+  position: absolute;
+  display: flex;
+  top: 0px;
+  left: 0px;
+}

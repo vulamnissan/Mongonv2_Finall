@@ -1,0 +1,589 @@
+html,body{
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #252525;
+    display: flex;
+    flex-direction: column;
+  }
+header{
+  display: flex;
+  height: 53px;
+  padding-top: 15px;
+}
+/* -------------------------------------css for bell and account-------------------------------- */
+
+
+.icon-button__badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 25px;
+  height: 25px;
+  background: red;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+/* -----------------------------css for list thong bao-------------- */
+
+.notification-list {
+  text-align: center;
+  color: #ffffff;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 200px;
+  grid-template-rows: repeat(auto-fit, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  background-color:#323232;
+  border:none;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: -1px 2px 12px 1px #000000;
+  z-index: 4;
+}
+/* -----------------------------css for list thong bao-------------- */
+
+/* -------------------------------------css for bell and account-------------------------------- */
+#account-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #252525;
+  border: none;
+  color: #e94801;
+  width: fit-content;
+  margin-left: 20px;
+  margin-right: 10px;
+  font-size: 150%;
+  margin-left: auto;
+}
+#account-button:hover{
+  cursor: pointer;
+
+}
+.notification-list-acc {
+  color: #ffffff;
+  display: none;
+  font-size: 14px;
+  position: absolute;
+  top: 6%;
+  right: 0;
+  width: fit-content;
+  background-color:#323232;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: -1px 2px 12px 1px #000000;
+  z-index: 4;
+
+}
+
+.notification-list-acc p {
+  font-size: 14px;
+  margin-right: auto;
+  width: fit-content;
+}
+.notification-list-acc button {
+  margin-top: 20px;
+  background: none;
+  color: #e94801;
+  border: none;
+  text-align: right;
+  width: 100%;
+}
+.notification-list-acc button:hover{
+cursor: pointer;
+}
+/* -------------------------------------css for bell and account-------------------------------- */
+
+/* ---------------------------CSS for sidebar---------------------------------- */
+  .sidebar {
+    z-index: 4;
+    width: 250px;
+    background-color: #323232;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -208px; /* ẩn thanh menu bên trái */
+    transition: left 0.3s ease;
+    box-shadow: 6px 2px 12px 1px #000000;
+  }
+
+  .sidebar.open {
+    left: 0; /* hiển thị thanh menu bên trái */
+  }
+.menu{
+  z-index: 5;
+    color: #e94801;
+  }
+
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 50px;
+    margin-left: 30px;
+  }
+
+  .sidebar ul li {
+    cursor: pointer;
+    padding: 10px;
+    /* border-bottom: 1px solid #ccc; */
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color:  #ffffff;
+  }
+
+  .sidebar ul li a:hover {
+    color:#e94801;
+    font-weight: bold;
+  }
+
+  .content {
+    margin-left: 250px;
+    padding: 20px;
+  }
+
+  .menu {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+/* ---------------------------CSS for sidebar---------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+ /* -------------------------------------------------------------------------------Information about TEXT ID------------------------------------------------------------------------ */
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+ h1{
+  text-decoration:2px underline;
+  text-underline-offset: 4px;
+  
+  margin-top: 0px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  margin-left: 90px;
+  font-size: 40px;
+  font-weight: 1000;
+ }
+
+ h3{
+  border-top: 0.5px solid #ffffff;
+  color: #ffffff;
+  margin-left: 50px;
+  font-size: 15px;
+  font-weight: 1000;
+  margin-top: 20px;
+ }
+ h4{
+  height: 40%;
+  text-align: center;
+  text-decoration:2px underline;
+  text-underline-offset: 4px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  color: #ffffff;
+  font-size: 50px;
+  font-weight: 1000;
+ }
+ .box_btn {
+  margin-left: 60px;
+  margin-right: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box_btn button {
+  flex: 0 0 auto;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.btn_disnable{
+  font-size: larger;
+  width: fit-content;
+  background-color: #191919;
+  border-radius: 10px;
+  border: 1px solid #D0CECE;
+  padding: 10px 20px;
+  color: #e94801;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 10px;
+  font-weight: 800;
+}
+.box_btn button{
+  font-size: larger;
+  width: fit-content;
+  background-color: #191919;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 20px;
+  color: #e94801;
+  text-decoration: none;
+  margin-left: 10px;
+  font-weight: 800;
+}
+.btn{
+  font-size: larger;
+  width: fit-content;
+  background-color: #252525 !important;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: 1px solid #D0CECE !important;
+  padding: 10px 20px;
+  color: #e94801;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 10px;
+  font-weight: 800;
+}
+.btn:hover {
+
+  background-color: #e94801;
+  color:#ffffff;
+
+}
+.btn_pop{
+  font-size: larger;
+  width: fit-content;
+  background-color: #252525;
+  border-radius: 10px;
+  border: 1px solid #D0CECE;
+  padding: 10px 20px;
+  color: #e94801;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 10px;
+  font-weight: 800;
+}
+.btn_pop:hover {
+
+  background-color: #e94801;
+  color:#ffffff;
+
+}
+#btn_back_to_Database_of_wording_content{
+  margin-left: 100px;
+  margin-top: 10px;
+  height: fit-content;
+  font-size: 15px;
+  background-color: #e94801;
+  color: #ffffff;
+  border-radius: 5px;
+  border: none;
+}
+#btn_back_to_Database_of_wording_content:hover {
+  cursor: pointer;
+  background-color: #e94801;
+  color: #000000;
+
+}
+#btn_Information_about_TEXT_ID_Set_Approval_route{
+  margin-left: auto;
+}
+#Wraper_table_Information_about_TEXT_ID{
+  position: relative;
+  /* table-layout: fixed; */
+ 
+  overflow-y: auto;
+  margin-top: 20px;
+  background-color: #ccc;
+  display: flex;
+  width: auto;
+  flex-grow: 1;
+  margin-left: 70px;
+  margin-right: 30px;
+  height: 580px;
+  border: 1px solid #571C01;
+  table-layout: fixed;
+  z-index: 1;
+}
+#Information_about_TEXT_ID{
+  flex: 1; /* Chiều cao tự mở rộng để điền vào không gian còn lại */
+  background-color: #252525;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  }
+/* -------------------------CSS for table--------------------------------- */
+ table {
+  width: 100%;
+  border-collapse:separate;
+  border-spacing: 0px;
+  color: #ffffff;
+ 
+}
+td input[type="text"] {
+
+  width: 100%;
+  height: fit-content;
+  border: none;
+  outline: none;
+  background:black;
+  font-family: inherit;
+  font-size: inherit;
+  color: #ffffff;
+}
+.blank{
+  background-color: #FFFF00;
+}
+.full{
+  background-color: #548235;
+
+}
+.normal{
+  background-color: #7A2600;
+}
+th, td {
+ 
+  
+  box-sizing: border-box;
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #571C01;
+  text-align: center;
+}
+td{
+
+  background-color: #252525;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+th {
+  
+  
+  background-color: #191919;
+}
+thead th { 
+  position:sticky;
+  top: 0;
+} 
+td:last-child{
+  width: 6%;
+}
+td:nth-child(2){
+  width: 14%;
+}
+input[type="checkbox"]:hover {
+cursor: pointer;
+}
+/* -------------------------CSS for table--------------------------------- */
+/* -------------------------CSS for table--------------------------------- */
+/* -------------------------CSS for table--------------------------------- */
+
+
+#table_Meter_Display_type{
+  overflow: auto !important;
+}
+
+
+
+
+/* -----------------css for Meter Display type popup------------------------------- */
+
+#Information_about_TEXT_ID_Meter_Display_type{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 3;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+}
+#modal_Meter_Display_type{
+  border-radius: 15px;
+  box-shadow: 0 0 12px 3px #59c1fd;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 8px;
+  position: relative;
+  background: #252525;
+  width: 500px;
+  height: 600px;
+
+}
+#Information_about_TEXT_ID_Meter_Display_type.show{
+  opacity: 1;
+  pointer-events: all;
+}
+.btn_ok_cancle{
+  display: flex;
+  height: fit-content;
+  justify-content: flex-end;
+}
+#modal_Meter_Display_type td input[type="text"] {
+
+  overflow-wrap: break-word !important;
+  width: 100%!important;
+  height: fit-content!important;
+  border: none!important;
+  outline: none!important;
+  background:none!important;
+  font-family: inherit!important;
+  font-size: inherit!important;
+  color: #ffffff!important;
+  text-align: center!important;
+}
+#Meter_Display_type_add{
+  margin-right: auto;
+  color: #59c1fd;
+  border: none;
+  background: none;
+}
+#Meter_Display_type_remove{
+  display: none;
+  margin-right: auto;
+  color: #59c1fd;
+  border: none;
+  background: none;
+}
+/* -----------------css for Meter Display type popup------------------------------- */
+
+/* -----------------css for Set Approval popup------------------------------- */
+
+#Information_about_TEXT_ID_Set_Approval{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index: 3;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+}
+#modal_Set_Approval{
+border-radius: 15px;
+box-shadow: 0 0 12px 3px #59c1fd;
+padding: 20px;
+display: grid;
+grid-template-columns: repeat(1, 1fr);
+gap: 8px;
+position: relative;
+background: #252525;
+width: 500px;
+height: 600px;
+
+}
+#Information_about_TEXT_ID_Set_Approval.show{
+opacity: 1;
+pointer-events: all;
+}
+.btn_ok_cancle{
+display: flex;
+height: fit-content;
+justify-content: flex-end;
+}
+#modal_Set_Approval td:first-child{
+  width: 5%;
+}
+#modal_Set_Approval td input[type="text"] {
+
+  overflow-wrap: break-word;
+  width: 100%;
+  height: fit-content;
+  border: none;
+  outline: none;
+  background:none;
+  font-family: inherit;
+  font-size: inherit;
+  color: #ffffff;
+}
+.active {
+  background-color: gray;
+}
+#lack_of_infor2{
+  text-align: center;
+  color: red;
+  display: none;
+}
+#lack_of_infor4{
+  text-align: center;
+  color: red;
+  display: none;
+  margin: 0px;
+}
+/* -----------------css for Set Approval popup------------------------------- */
+.editable {
+  background-color: #f2f2f2;
+}
+
+.editable input {
+  pointer-events: none;
+}
+
+
+
+#btn_Information_about_TEXT_ID_Reject{
+  display: none;
+}
+#btn_Information_about_TEXT_ID_Approval{
+  display: none;
+}
+
+
+
+@media only screen and (max-width: 1600px) {
+    #Wraper_table_Database_of_wording{
+     
+      height: 550px;
+
+    }
+  }
+@media only screen and (max-width: 1366px) {
+   h1{
+     
+      font-size: 20px;
+
+    }
+    #btn_Information_about_TEXT_ID {
+      font-size: 6px;
+
+    }
+    #Wraper_table_Database_of_wording {
+      height: 440px;
+  }
+.after-layer{
+  height: 370px;
+}
+#modal_Set_Approval{
+  /* height: 70%; */
+}
+  }
+@media only screen and (max-width: 2560px) {
+  .after-layer{
+    top: 304px;
+    height: 1220px;
+  }
+  #modal_Meter_Display_type {
+    /* height: 60% !important; */
+  }
+  
+  #Wraper_table_Information_about_TEXT_ID{
+    height: 490px;
+    /* width: 92%; */
+  }
+  
+    }

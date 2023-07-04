@@ -1,0 +1,275 @@
+{
+    "validation_request": {
+        "simulator_text_00001": {
+            "language": {
+                "US English": {
+                    "content": "Aconitum1",
+                    "ver": "1"
+                },
+                "Japanese": {
+                    "content": "\u30c8\u30ea\u30ab\u30d6\u30c81",
+                    "ver": "1"
+                },
+                "Arabic": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "BrazilianPortuguese": {
+                    "content": "\u05d0\u05e7\u05d5\u05e0\u05d9\u05d8\u05d5\u05dd 1",
+                    "ver": "1"
+                },
+                "British": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "CanadianFrench": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Chinese": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Czech": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Danish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Dutch": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Finnish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "French": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "German": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Greek": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Hungarian": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Italian": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Korea": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "MexicanSpanish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Norwegian": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Polish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Portuguese": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Russian": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Slovak": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Spanish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Swedish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Taiwanese": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Thai": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Turkish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Ukrainian": {
+                    "content": "0",
+                    "ver": "0"
+                }
+            },
+            "content": "content_Aconitum",
+            "display_type": "Text_1",
+            "number_line": "1",
+            "layout": "",
+            "limit_lenght": "425"
+        },
+        "simulator_text_00002": {
+            "language": {
+                "US English": {
+                    "content": "AfricanDaisy",
+                    "ver": "1"
+                },
+                "Japanese": {
+                    "content": "\u30a2\u30d5\u30ea\u30ab\u30f3\u30c7\u30a4\u30b8\u30fc",
+                    "ver": "1"
+                },
+                "Arabic": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "BrazilianPortuguese": {
+                    "content": "\u05d3\u05d9\u05d9\u05d6\u05d9 \u05d0\u05e4\u05e8\u05d9\u05e7\u05d0\u05d9\u05ea",
+                    "ver": "1"
+                },
+                "British": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "CanadianFrench": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Chinese": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Czech": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Danish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Dutch": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Finnish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "French": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "German": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Greek": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Hungarian": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Italian": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Korea": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "MexicanSpanish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Norwegian": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Polish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Portuguese": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Russian": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Slovak": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Spanish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Swedish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Taiwanese": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Thai": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Turkish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Ukrainian": {
+                    "content": "0",
+                    "ver": "0"
+                }
+            },
+            "content": "content_AfricanDaisy",
+            "display_type": "Text_3",
+            "number_line": "1",
+            "layout": "",
+            "limit_lenght": "355"
+        }
+    },
+    "password": "1",
+    "creator": {
+        "name": "NGUYEN, MANHCUONG",
+        "sect": "abcdgroup",
+        "mail": "manhcuong-nguyen@mail.nissan.co.jp",
+        "company": "NISSAN"
+    },
+    "mgr": {
+        "name": "1",
+        "sect": "1",
+        "mail": "k-kitada@mail.nissan.co.jp",
+        "company": ""
+    },
+    "validator": {
+        "name": "1",
+        "sect": "1",
+        "mail": "vanba-nguyen@mail.nissan.co.jp",
+        "company": ""
+    },
+    "deadline": "",
+    "date": "28\/6\/2023"
+}

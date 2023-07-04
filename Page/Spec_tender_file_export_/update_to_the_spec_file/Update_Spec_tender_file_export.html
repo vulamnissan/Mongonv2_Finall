@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MeterMongon</title>
+  <link rel="stylesheet" href="Update_Spec_tender_file_export1.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div id="sidebar" class="sidebar">
+      <ul>
+            <li><a href="../home/home.html">Home</a></li>
+            <li><a href="#">Spec tender File Export</a></li>
+            <li><a href="../Function/Database_of_wording/Database of wording.html">Database of wording</a></li>
+            <li><a href="../update_to_the_spec_file/Update_Spec_tender_file_export.html" style="color: #e94801;text-decoration: underline;"   >Manage application</a></li>
+            <li><a href="#">Translation request</a></li>
+            <li><a href="#">Validator request</a></li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <div class="menu" onclick="toggleSidebar()">
+        &#9776; <!-- biểu tượng menu -->
+      </div>
+
+    </div>
+  
+    <div   id="account-button"  >
+                    <i class="fa fa-user"></i>
+                    <span style="margin-left: 10px;" >Ngo Anh Tuan</span>
+                <div class="notification-list-acc" id="notification-list-acc">
+                  <p  id="account_type"  >Manager</p> 
+                  <p id="email"   > KNT21345@local.nmcorp.nissan.biz</p> 
+                  <button    >  Logout→</button>
+                </div>
+
+
+
+    </div>
+
+
+
+  </header>
+
+<!-- -----------------content---------------------------- -->
+<div id = "Spec_tender_file_export_content" >
+  <div id="Spec_tender_file_export">
+  <h1>Spec tender File Export</h1>
+  <div id="Spec_tender_file_export_text">
+    <p>Please select the wording you want to update to the spec file!
+
+       </p>
+  </div>
+      <div  class="box_btn" >
+            <button   id="btn_Spec_tender_file_export_Save" class=" btn_display"     > Save </button>
+            <button   id="btn_Spec_tender_file_export_Start_comparison"  class=" btn_display"   > Start comparison   </button>
+            <button   id="btn_Spec_tender_file_export_Export_file"  class=" btn_display"   > Export file   </button>
+
+      </div>   
+</div>
+<!-- -----------------Table---------------------------- -->
+
+<div class="table_Spec_tender_file_export_container">
+  <table id = "table">
+    <thead>
+    <tr>
+      <th rowspan="2">TextID</th>
+      <th colspan="2">Japanese</th>
+      <th colspan="2">Chinese</th>
+      <th colspan="2">Arabic</th>  
+    </tr>
+    <tr>
+      <th>Data base</th>
+      <th>Select File</th>
+      <th>Data base</th>
+      <th>Select File</th>
+      <th>Data base</th>
+      <th>Select File</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TXT00128374ERYR</td>
+      <td><div class="checkbox_name">変化点</div><input id ="Japanese_checkbox" class="checkbox_tbl" type="checkbox"></td>
+      <td>変更点</td>
+      <td><div class="checkbox_name">改変</div><input id ="Chinese_checkbox" class="checkbox_tbl" type="checkbox"></td>
+      <td>改変</td>
+      <td><div class="checkbox_name"></div><input id ="Arabic_checkbox" class="checkbox_tbl" type="checkbox"></td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td>TXT00128375ERYR</td>
+      <td><div class="checkbox_name">両親</div><input id ="Japanese_checkbox" class="checkbox_tbl" type="checkbox"></td>
+      <td>両親</td>
+      <td><div class="checkbox_name">父母</div><input id ="Chinese_checkbox" class="checkbox_tbl" type="checkbox"></td>
+      <td>父母</td>
+      <td><div class="checkbox_name"></div> <input id ="Arabic_checkbox" class="checkbox_tbl" type="checkbox"></td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td>TXT00128376ERYR</td>
+      <td><div class="checkbox_name">E-POWER</div><input id ="Japanese_checkbox" class="checkbox_tbl" type="checkbox"></td>
+      <td>E-POWER</td>
+      <td><div class="checkbox_name">E-POWER</div><input id ="Chinese_checkbox" class="checkbox_tbl" type="checkbox"></td>
+      <td>E-POWER</td>
+      <td><div class="checkbox_name">E-POWER</div><input id ="Arabic_checkbox" class="checkbox_tbl" type="checkbox"></td>
+      <td>E-POWER</td>
+      
+    </tr>
+    <tr>
+      <td>TXT00128377ERYR</td>
+      <td><div class="checkbox_name">確認ください</div><input id ="Japanese_checkbox" class="checkbox_tbl" type="checkbox"></td>
+      <td>確認お願いします</td>
+      <td><div class="checkbox_name"></div><input id ="Chinese_checkbox" class="checkbox_tbl" type="checkbox"></td>
+      <td></td>
+      <td><div class="checkbox_name">acd</div><input id ="Arabic_checkbox" class="checkbox_tbl" type="checkbox"></td>
+      <td>add</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div id="Spec_tender_file_export_home_container">
+  <div id="Spec_tender_file_export_home_function" class="mang_box">
+    <button id = "Spec_tender_file_export_button_back" class="icon_button_display" > <-- Back </button>
+  </div>
+</div> 
+</div>
+
+
+
+<script src="../update_to_the_spec_file/Update_Spec_tender_file_export.js"></script>
+
+
+
+<footer>
+  
+  <h3>Copyright©Nissan Motor Co., Ltd. All Rights Reserved</h3>
+
+
+</footer>
+
+
+</body>
+</html>
+<script>
+  var table = document.getElementById("table");
+  var row=table.rows
+</script>

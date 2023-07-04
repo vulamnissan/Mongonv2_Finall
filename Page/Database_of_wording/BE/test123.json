@@ -1,0 +1,35 @@
+{
+    "TXT_SET_SET_0001": {
+        "Content": "\u6a5f\u80fd\u30bf\u30a4\u30c8\u30eb",
+        "Display type": "Title",
+        "Meter type": "7TFT",
+        "Number of lines": "1",
+        "US English": "Settings",
+        "Japanese": "\u8a2d\u5b9a",
+        "Vehicle already applied": "L02D\/B12P\/P02F",
+        "Manager approval status": "Done(Uchiyama-3)",
+        "Date": "2023\/6\/1"
+    },
+    "TXT_SET_CD_0001": {
+        "Content": "\u30e6\u30fc\u30b6\u30fc\u8a2d\u5b9a",
+        "Display type": "List Text",
+        "Meter type": "7TFT",
+        "Number of lines": "1",
+        "US English": "Customize Display",
+        "Japanese": "\u753b\u9762\u30ab\u30b9\u30bf\u30de\u30a4\u30ba",
+        "Vehicle already applied": "L02D\/B12P\/P02F",
+        "Manager approval status": "Done(Uchiyama-3)",
+        "Date": "2023\/6\/1"
+    },
+    "TXT_SET_VSET_0074": {
+        "Content": "\u8eca\u4e21\u8a2d\u5b9a\u306e\u9805\u76ee\u306b\u3066\u3001\u30ea\u30a2\u30c9\u30a2\u30a2\u30e9\u30fc\u30c8\u306e\u73fe\u5728\u30b9\u30bf\u30fc\u30c6\u30b9\u3092\u8868\u793a\u3059\u308b",
+        "Display type": "List Text with tabLabel",
+        "Meter type": "7TFT",
+        "Number of lines": "1",
+        "US English": "Rear Door Alert",
+        "Japanese": "",
+        "Vehicle already applied": "L02D",
+        "Manager approval status": "Done(Uchiyama-3)",
+        "Date": "2023\/6\/1"
+    }
+}

@@ -1,0 +1,175 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body{
+    background-image: url(\GTR50byITAL_main.png);
+    background-size: cover;
+    /* height:1080px; */
+    /* background-position: center; */
+}
+h1{
+    color: #fff;
+}
+
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 480px;
+    height: 500px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(24, 20, 20, 0.1);
+    box-sizing: border-box;
+    box-shadow: -3px -5px 15px 20px rgba(0,0,0,.6);
+    border-radius: 10px;
+  }
+  
+  .login-box .user-box {
+    position: relative;
+  }
+  
+  .login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  
+  .login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+  }
+  
+  .login-box .user-box input:focus ~ label,
+  .login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #bdb8b8;
+    font-size: 12px;
+  }
+  
+  .login-box form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    letter-spacing: 4px
+  }
+  
+ #btn_login:hover {
+    cursor: pointer;
+    background: #37b6ff;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #37b6ff,
+                0 0 25px #37b6ff,
+                0 0 50px #37b6ff,
+                0 0 100px #37b6ff,
+  }
+  #btn_login{
+  font-size: 20px;
+  color: #fff;
+  width: 40%;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+  
+  }
+
+center{
+    padding-top: 20px;
+}
+
+  
+  .forgot{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.02rem;
+    line-height: 1rem;
+    color: rgba(156, 163, 175,1);
+    height: fit-content;
+  }
+  .sigup{
+    padding-top: 20px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+
+  }
+  #btn_signup{
+    height: fit-content;
+    color:#e94801;
+    background-color:rgba(156, 163, 175,0);
+    border:none;
+    padding-left: 10px;
+  }
+  #btn_signup:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+  }
+  #toggleButton{
+    position: absolute;
+    top: 24%;
+    right: 0px;
+    transform: translateY(-50%);
+  }
+  #btn_signup2{
+    font-size: 20px;
+    color: #fff;
+    width: 30%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+    
+    }
+    #btn_signup2:hover {
+      cursor: pointer;
+      background: #37b6ff;
+      color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 5px #37b6ff,
+                  0 0 25px #37b6ff,
+                  0 0 50px #37b6ff,
+                  0 0 100px #37b6ff,
+    }
+    #btn_send{
+      font-size: 20px;
+      color: #fff;
+      width: 30%;
+      height: 40px;
+      border: none;
+      border-radius: 10px;
+      background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+      
+      }
+      #btn_send:hover {
+        cursor: pointer;
+        background: #37b6ff;
+        color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #37b6ff,
+                    0 0 25px #37b6ff,
+                    0 0 50px #37b6ff,
+                    0 0 100px #37b6ff,
+      }

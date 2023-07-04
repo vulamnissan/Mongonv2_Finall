@@ -1,0 +1,42 @@
+ <table>
+                                                              <thead>
+                                                              <tr>
+                                                                <th  colspan="2"  >Creator</th>
+                                                              </tr>
+                                                            </thead>
+                                                          <tbody>
+                                                              <tr>
+                                                                <td>Name</td>
+                                                                <td><input type="text" placeholder="Please enter your name"   ></td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>Sect</td>
+                                                                <td><input type="text" placeholder="Please enter your sect" ></td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>Mail</td>
+                                                                <td><input type="text" placeholder="Please enter your mail"  ></td>
+                                                              </tr>
+                                                            </tbody>
+                                                          </table>
+                                                          <table>
+                                                            <thead>
+                                                            <tr>
+                                                              <th  colspan="2"  >MGR</th>
+                                                            </tr>
+                                                          </thead>
+                                                          <tbody>
+                                                            <tr>
+                                                              <td>Name</td>
+                                                              <td><input type="text" placeholder="Please enter your name"   ></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>Sect</td>
+                                                              <td><input type="text" placeholder="Please enter your sect" ></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>Mail</td>
+                                                              <td><input type="text" placeholder="Please enter your mail"  ></td>
+                                                            </tr>
+                                                          </tbody>
+                                                          </table>

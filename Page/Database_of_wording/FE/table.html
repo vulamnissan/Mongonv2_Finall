@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+        th,
+        td {
+          border: 1px solid black;
+          padding: 8px;
+        }
+        thead th {
+          background-color: #f2f2f2;
+        }
+        .sticky-thead {
+          position: sticky;
+          top: 0;
+          z-index: 1;
+        }
+      </style>
+      <div   style="overflow-y: auto;height: 200px;">
+
+     
+      <table>
+        <thead class="sticky-thead">
+          <tr>
+            <th colspan="2">Header 1</th>
+            <th>Header 2</th>
+            <th colspan="3">Header 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+            <td>Data 3</td>
+            <td>Data 4</td>
+            <td>Data 5</td>
+            <td>Data 6</td>
+          </tr>
+          <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+            <td>Data 3</td>
+            <td>Data 4</td>
+            <td>Data 5</td>
+            <td>Data 6</td>
+          </tr>
+          <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+            <td>Data 3</td>
+            <td>Data 4</td>
+            <td>Data 5</td>
+            <td>Data 6</td>
+          </tr>
+          <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+            <td>Data 3</td>
+            <td>Data 4</td>
+            <td>Data 5</td>
+            <td>Data 6</td>
+          </tr>
+          <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+            <td>Data 3</td>
+            <td>Data 4</td>
+            <td>Data 5</td>
+            <td>Data 6</td>
+          </tr>
+          <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+            <td>Data 3</td>
+            <td>Data 4</td>
+            <td>Data 5</td>
+            <td>Data 6</td>
+          </tr>
+          <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+            <td>Data 3</td>
+            <td>Data 4</td>
+            <td>Data 5</td>
+            <td>Data 6</td>
+          </tr>
+          <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+            <td>Data 3</td>
+            <td>Data 4</td>
+            <td>Data 5</td>
+            <td>Data 6</td>
+          </tr>
+          <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+            <td>Data 3</td>
+            <td>Data 4</td>
+            <td>Data 5</td>
+            <td>Data 6</td>
+          </tr>
+
+          <!-- More rows... -->
+        </tbody>
+      </table>
+    </div>
+      <script>
+        window.addEventListener("scroll", function () {
+          var stickyThead = document.querySelector(".sticky-thead");
+          var tableRect = stickyThead.closest("table").getBoundingClientRect();
+          var theadRect = stickyThead.getBoundingClientRect();
+      
+          if (tableRect.top > 0) {
+            stickyThead.style.width = "auto";
+            stickyThead.style.left = "auto";
+            stickyThead.style.right = "auto";
+          } else if (tableRect.bottom < theadRect.height) {
+            stickyThead.style.width = "auto";
+            stickyThead.style.left = "auto";
+            stickyThead.style.right = "auto";
+          } else {
+            stickyThead.style.width = tableRect.width + "px";
+            stickyThead.style.left = tableRect.left + "px";
+            stickyThead.style.right = window.innerWidth - tableRect.right + "px";
+          }
+        });
+      </script>
+      
+</body>
+</html>

@@ -1,0 +1,400 @@
+{
+    "validation_request": {
+        "simulator_text_00001": {
+            "language": {
+                "US_English": {
+                    "content": "Aconitum3",
+                    "ver": "3"
+                },
+                "Japanese": {
+                    "content": "",
+                    "ver": "3"
+                },
+                "Arabic": {
+                    "content": "\u0627\u0644\u0628\u064a\u0634 3",
+                    "ver": "3"
+                },
+                "BrazilianPortuguese": {
+                    "content": "\u05d0\u05e7\u05d5\u05e0\u05d9\u05d8\u05d5\u05dd3",
+                    "ver": "3"
+                },
+                "British": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "CanadianFrench": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Chinese": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Czech": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Danish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Dutch": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Finnish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "French": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "German": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Greek": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Hungarian": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Italian": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Korea": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "MexicanSpanish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Norwegian": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Polish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Portuguese": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Russian": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Slovak": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Spanish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Swedish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Taiwanese": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Thai": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Turkish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Ukrainian": {
+                    "content": "0",
+                    "ver": "0"
+                }
+            },
+            "content": "content_Aconitum",
+            "display_type": "Text_1",
+            "number_line": "1",
+            "layout": "",
+            "limit_lenght": "425"
+        },
+        "simulator_text_00003": {
+            "language": {
+                "US_English": {
+                    "content": "Agapanthus1",
+                    "ver": "1"
+                },
+                "Japanese": {
+                    "content": "\u30a2\u30ac\u30d1\u30f3\u30b5\u30b91",
+                    "ver": "1"
+                },
+                "Arabic": {
+                    "content": "\u0623\u063a\u0627\u0628\u0627\u0646\u062b\u0648\u0633 1",
+                    "ver": "1"
+                },
+                "BrazilianPortuguese": {
+                    "content": "\u05d0\u05d2\u05e4\u05e0\u05d8\u05d5\u05e11",
+                    "ver": "1"
+                },
+                "British": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "CanadianFrench": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Chinese": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Czech": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Danish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Dutch": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Finnish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "French": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "German": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Greek": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Hungarian": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Italian": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Korea": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "MexicanSpanish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Norwegian": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Polish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Portuguese": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Russian": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Slovak": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Spanish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Swedish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Taiwanese": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Thai": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Turkish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Ukrainian": {
+                    "content": "0",
+                    "ver": "0"
+                }
+            },
+            "content": "content_Agapanthus",
+            "display_type": "Text_5",
+            "number_line": "1",
+            "layout": "",
+            "limit_lenght": "395"
+        },
+        "simulator_text_00004": {
+            "language": {
+                "US_English": {
+                    "content": "Ageratumhoustonianum",
+                    "ver": "1"
+                },
+                "Japanese": {
+                    "content": "\u30a2\u30b2\u30e9\u30bf\u30e0\u30cf\u30a6\u30b9\u30c8\u30cb\u30a2\u30ca\u30e0",
+                    "ver": "1"
+                },
+                "Arabic": {
+                    "content": "",
+                    "ver": "1"
+                },
+                "BrazilianPortuguese": {
+                    "content": "Ageratumhoustonianum",
+                    "ver": "1"
+                },
+                "British": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "CanadianFrench": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Chinese": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Czech": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Danish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Dutch": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Finnish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "French": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "German": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Greek": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Hungarian": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Italian": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Korea": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "MexicanSpanish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Norwegian": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Polish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Portuguese": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Russian": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Slovak": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Spanish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Swedish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Taiwanese": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Thai": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Turkish": {
+                    "content": "0",
+                    "ver": "0"
+                },
+                "Ukrainian": {
+                    "content": "0",
+                    "ver": "0"
+                }
+            },
+            "content": "content_Ageratumhoustonianum",
+            "display_type": "Text_7",
+            "number_line": "1",
+            "layout": "",
+            "limit_lenght": "480"
+        }
+    },
+    "password": "123",
+    "creator": {
+        "name": "NGUYEN, MANHCUONG",
+        "sect": "abcdgroup",
+        "mail": "manhcuong-nguyen@mail.nissan.co.jp",
+        "company": "NISSAN"
+    },
+    "mgr": {
+        "name": "a",
+        "sect": "a",
+        "mail": "k-kitada@mail.nissan.co.jp",
+        "company": "a"
+    },
+    "validator": {
+        "name": "a",
+        "sect": "a",
+        "mail": "vanba-nguyen@mail.nissan.co.jp",
+        "company": "a"
+    },
+    "deadline": "",
+    "date": "3\/7\/2023"
+}

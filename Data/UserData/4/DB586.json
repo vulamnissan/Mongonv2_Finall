@@ -1,0 +1,26 @@
+{
+    "NGUYEN, MANHCUONG": {
+        "simulator_text_00008": {
+            "Content": "content_Alyssum",
+            "Display type": "Text_4",
+            "Meter type": "LAM",
+            "Number of lines": "1",
+            "US English": "Alyssum",
+            "Japanese": "\u30a2\u30ea\u30c3\u30b5\u30e0",
+            "Vehicle already applied": "Honda",
+            "Manager approval status": "Done_tuan",
+            "Date": "02\/03\/2023"
+        },
+        "simulator_text_00009": {
+            "Content": "content_Amaranthus",
+            "Display type": "Text_5",
+            "Meter type": "LAM",
+            "Number of lines": "1",
+            "US English": "Amaranthus",
+            "Japanese": "\u30a2\u30de\u30e9\u30f3\u30b5\u30b9",
+            "Vehicle already applied": "Bentley",
+            "Manager approval status": "",
+            "Date": ""
+        }
+    }
+}

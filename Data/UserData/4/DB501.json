@@ -1,0 +1,37 @@
+{
+    "NGUYEN, MANHCUONG": {
+        "simulator_text_00001": {
+            "Content": "content_Aconitum",
+            "Display type": "Text_1",
+            "Meter type": "B",
+            "Number of lines": "1",
+            "US English": "Aconitum",
+            "Japanese": "\u30c8\u30ea\u30ab\u30d6\u30c8",
+            "Vehicle already applied": "Mazda",
+            "Manager approval status": "Done_nam",
+            "Date": "02\/03\/2023"
+        },
+        "simulator_text_00002": {
+            "Content": "content_AfricanDaisy",
+            "Display type": "Text_3",
+            "Meter type": "B",
+            "Number of lines": "1",
+            "US English": "AfricanDaisy",
+            "Japanese": "\u30a2\u30d5\u30ea\u30ab\u30f3\u30c7\u30a4\u30b8\u30fc",
+            "Vehicle already applied": "Toyota",
+            "Manager approval status": "",
+            "Date": ""
+        },
+        "simulator_text_00010": {
+            "Content": "content_Amaryllis",
+            "Display type": "Text_4",
+            "Meter type": "C",
+            "Number of lines": "1",
+            "US English": "Amaryllis",
+            "Japanese": "\u30a2\u30de\u30ea\u30ea\u30b9",
+            "Vehicle already applied": "BMW",
+            "Manager approval status": "Done_binh",
+            "Date": "02\/03\/2023"
+        }
+    }
+}

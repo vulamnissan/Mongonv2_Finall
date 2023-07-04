@@ -1,0 +1,478 @@
+html,body{
+    height: 100%;
+}
+
+body {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    background-color: #252525;
+  }
+header{
+  display: flex;
+  height: 53px;
+  padding-top: 15px;
+}
+/* -------------------------------------css for bell and account-------------------------------- */
+
+
+.icon-button__badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 25px;
+  height: 25px;
+  background: red;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+/* -----------------------------css for list thong bao-------------- */
+
+.notification-list {
+  text-align: center;
+  color: #ffffff;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 200px;
+  grid-template-rows: repeat(auto-fit, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  background-color:#323232;
+  border:none;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: -1px 2px 12px 1px #000000;
+}
+
+/* -----------------------------css for list thong bao-------------- */
+
+/* -------------------------------------css for bell and account-------------------------------- */
+#account-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #252525;
+  border: none;
+  color: #e94801;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: 10px;
+  font-size: 150%;
+}
+#account-button:hover{
+  cursor: pointer;
+  color: #ffffff;
+
+}
+.notification-list-acc {
+  color: #ffffff;
+  display: none;
+  font-size: 14px;
+  position: absolute;
+  top: 6%;
+  right: 0;
+  width: fit-content;
+  background-color:#323232;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: -1px 2px 12px 1px #000000;
+
+}
+
+.notification-list-acc p {
+  font-size: 14px;
+  margin-right: auto;
+  width: fit-content;
+}
+
+.notification-list-acc button {
+  margin-top: 20px;
+  background: none;
+  color: #e94801;
+  border: none;
+  text-align: right;
+  width: 100%;
+}
+.notification-list-acc button:hover{
+cursor: pointer;
+}
+
+/* -------------------------------------css for bell and account-------------------------------- */
+
+/* ---------------------------CSS for sidebar---------------------------------- */
+  .sidebar {
+    width: 250px;
+    background-color: #323232;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -208px; /* ẩn thanh menu bên trái */
+    transition: left 0.3s ease;
+    box-shadow: 6px 2px 12px 1px #000000;
+  }
+
+  .sidebar.open {
+    left: 0; /* hiển thị thanh menu bên trái */
+  }
+.menu{
+    color: #e94801;
+  }
+
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 50px;
+    margin-left: 30px;
+  }
+
+  .sidebar ul li {
+    padding: 10px;
+    /* border-bottom: 1px solid #ccc; */
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color:  #ffffff;
+  }
+
+  .sidebar ul li a:hover {
+    color:#e94801;
+    font-weight: bold;
+  }
+
+  .content {
+    margin-left: 250px;
+    padding: 20px;
+  }
+
+  .menu {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+/* ---------------------------CSS for sidebar---------------------------------- */
+/*--------------------------CSS cho các tinh nang -------------------------------*/
+
+  .box:hover{
+    box-shadow: 1px 0px 10px 6px #e94801;
+  }
+  .box:active{
+    background-color: #e94801;
+    color: white;
+  }
+  .box.active{
+    background-color: #e94801;
+    color: white;
+  }
+
+
+
+#Spec_tender_file_export_home_container{
+    width: auto;
+    height: auto;
+    margin-right: auto;
+    display: flex;
+}
+#Spec_tender_file_export_home_function{
+  display: grid;
+  gap: 25px;
+  flex-basis: 20%;
+  margin-top: auto;
+  justify-content: center;
+  align-items: center;
+}
+.box {
+  font-size: 20px;
+  font-weight: 600;
+  color:  #e94801;
+  border:2px solid #c2c2c2 ;
+  border-radius: 10px;
+  width: 200px;
+  height: 110px;
+  background-color: #252525;
+  margin-bottom: 10px;
+  cursor: pointer;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+}
+h3{
+  border-top: 0.5px solid #ffffff;
+  color: #ffffff;
+  margin-left: 50px;
+  font-size: 15px;
+  font-weight: 1000;
+  margin-top: auto;
+ }
+
+  /*--------------------------CSS cho các tinh nang -------------------------------*/
+
+ #Spec_tender_file_export_button_back{
+  color: #D0CECE;
+    margin-top: auto;
+    width: 123px;
+    height: 43px;
+    background-color: #e94801;
+    border-radius: 8px;
+    
+
+}
+#Spec_tender_file_export_button_back:hover{
+  cursor: pointer;
+  color: #e94801;
+  background-color: #ffffff;
+}
+ 
+#Spec_tender_file_export{
+  flex: 1; /* Chiều cao tự mở rộng để điền vào không gian còn lại */
+  background-color: #252525;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  }
+  h1{
+    text-decoration:2px underline;
+    text-underline-offset: 4px;
+    
+    margin-top: 0px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    margin-left: 90px;
+    font-size: 40px;
+    font-weight: 1000;
+   }
+   .box_btn {
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    margin-left: 10%;
+}
+  
+  #btn_Spec_tender_file_export_Export_file{
+    margin-left: auto;
+  }
+  .box_btn button {
+    flex: 0 0 auto;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  } 
+  .box_btn button{
+    font-size: larger;
+    width: fit-content;
+    background-color: #191919;
+    border-radius: 10px;
+    border-color: #ffffff;
+    padding: 10px 35px;
+    color: #e94801;
+    text-decoration: none;
+    margin-left: 10px;
+
+  }
+  .btn_display:hover{
+    cursor: pointer;
+    background-color: #e94801;
+    color: #ffffff;
+  }
+  #Spec_tender_file_export_text{
+    color: #00B0F0;
+    margin-left: 10%;
+    font-size: 25px;
+  }
+  #Spec_tender_file_export_content{
+    height: 100%;
+    display: grid;
+    width: auto;
+    margin-left: 60px;
+  }
+  footer{
+    height: auto;
+    margin-top: auto;
+  }
+
+
+  /* ------------------------------------------------tbl--------------------------------- */
+  table {
+    table-layout: fixed;
+    width: 1px;
+    border-collapse:separate;
+    border-spacing: 0px;
+    color: #ffffff;
+   
+  }
+  th, td {
+   
+    height: auto;
+    width: 300px;
+    box-sizing: border-box;
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #571C01;
+    text-align: center;
+  }
+  td{
+  
+    background-color: #252525;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+  
+  th {
+    
+    
+    background-color: #191919;
+  }
+.sticky { 
+    position:sticky;
+    z-index: 3;
+    top: 0;
+  } 
+  .khac{
+    background-color: red;
+  }
+  .table_Spec_tender_file_export_container{
+    height: 400px;
+    overflow: auto;
+    width: auto;
+    margin-right: 10%;
+    margin-left: 10%;
+  }
+  .checkbox_tbl{
+    transform: scale(3);
+    height: 20%;
+    margin-left: 80%;
+  }
+  .checkbox_name{
+    display: grid;
+    justify-content: start;
+
+  }
+.textid_spec{
+
+  position: sticky;
+  left: 0;
+  z-index: 2;
+}
+td:first-child{
+  position: sticky;
+  left: 0;
+  z-index: 2;
+}
+
+/* @media (max-width: 2560px){
+  h1{
+    font-size: 60px;
+  }
+  #Spec_tender_file_export_home_container {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    
+  }
+  h3{
+    font-size: 30px;
+  }
+  #Spec_tender_file_export_text {
+    font-size: 35px;
+}
+.table_Spec_tender_file_export_container {
+  width: 85%;
+  height: 55%;
+  margin-left: 10%;
+}
+.checkbox_name{
+  margin-right: 40%;
+}
+#Spec_tender_file_export_button_back {
+  font-size: 30px;
+  width: 175px;
+  height: 50px;
+  border-radius: 10px;
+}
+.box_btn {
+  font-size: 30px;
+  width: 85%;
+  margin-left: 10%;
+}
+}
+
+
+@media (max-width: 1920px){
+  h1{
+    font-size: 50px;
+  }
+  #Spec_tender_file_export_home_container {
+    width: 100%;
+    height: 13%;
+    display: flex;
+    
+  }
+  h3{
+    font-size: 20px;
+  }
+  #Spec_tender_file_export_text {
+    font-size: 30px;
+}
+.table_Spec_tender_file_export_container {
+  width: 85%;
+  height: 50%;
+  margin-left: 10%;
+}
+.checkbox_name{
+  margin-right: 40%;
+}
+#Spec_tender_file_export_button_back {
+  font-size: 20px;
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  margin-top: -5%;
+}
+.box_btn {
+  font-size: 20px;
+  width: 85%;
+  margin-left: 10%;
+}
+}
+
+
+
+@media (max-width: 1600px){
+  h1{
+    font-size: 40px;
+  }
+  #Spec_tender_file_export_home_container {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    
+  }
+  h3{
+    font-size: 15px;
+  }
+  #Spec_tender_file_export_text {
+    font-size: 25px;
+}00
+.table_Spec_tender_file_export_container {
+  width: 85%;
+  height: 50%;
+  margin-left: 10%;
+}
+.checkbox_name{
+  margin-right: 40%;
+}
+.box_btn {
+  font-size: 20px;
+  width: 85%;
+  margin-left: 10%;
+}
+} */
