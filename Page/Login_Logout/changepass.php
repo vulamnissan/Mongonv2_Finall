@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+<?php
+  // Generate CSRF token
+  $csrfToken = bin2hex(random_bytes(32));
+  $_SESSION['csrf_token'] = $csrfToken;
+?>
 <head>
 <title>CHANGE PASSWORD</title>
 <link rel="stylesheet" href="login.css">
@@ -20,6 +25,7 @@
           <div class="user-box">
             <input id="email" type="text" name="" required="">
             <label>Email</label>
+            <input type="hidden" name="token" value="<?php echo htmlspecialchars($csrfToken, ENT_COMPAT, 'UTF-8') ;?>">
           </div>
           <div class="user-box">
             <input id="old_pass" type="password" name="" required="">

@@ -131,16 +131,16 @@ $last_row_textid=get_count_textid($qr, $db); //last row of table "textid_infor"
 include '../../securityCheck.php';
 foreach($jsonData[$creator_name] as $key => $value)
     {
-        $textid=$key;
-        $content = $jsonData[$creator_name][$key]['Content'];
-        $display_type = $jsonData[$creator_name][$key]['Display type'];
-        $meter_type = $jsonData[$creator_name][$key]['Meter type'];
-        $number_lines = $jsonData[$creator_name][$key]['Number of lines'];
-        $US_English = $jsonData[$creator_name][$key]['US English'];
-        $Japanese = $jsonData[$creator_name]['Japanese'];
-        $VehicleApplied = $jsonData[$creator_name][$key]['Vehicle already applied'];
-        $ManagerApproval = $jsonData[$creator_name][$key]['Manager approval status'];
-        $Date = $jsonData[$creator_name][$key]['Date'];
+        $textid=jsEscape($key);
+        $content = jsEscape($jsonData[$creator_name][$key]['Content']);
+        $display_type = jsEscape($jsonData[$creator_name][$key]['Display type']);
+        $meter_type = jsEscape($jsonData[$creator_name][$key]['Meter type']);
+        $number_lines = jsEscape($jsonData[$creator_name][$key]['Number of lines']);
+        $US_English = jsEscape($jsonData[$creator_name][$key]['US English']);
+        $Japanese = jsEscape($jsonData[$creator_name]['Japanese']);
+        $VehicleApplied = jsEscape($jsonData[$creator_name][$key]['Vehicle already applied']);
+        $ManagerApproval = jsEscape($jsonData[$creator_name][$key]['Manager approval status']);
+        $Date = jsEscape($jsonData[$creator_name][$key]['Date']);
         up_text_id($qr, $db, $textid, $content, $display_type, $meter_type, $number_lines, $US_English, $Japanese, $VehicleApplied, $ManagerApproval, $Date); //call function update to table "textid_infor"
         up_text_idlanguage($qr, $db, $textid, $US_English, $Japanese);  
     }  

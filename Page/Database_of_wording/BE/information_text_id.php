@@ -288,7 +288,7 @@ if($type_account === "manager"){
                         }
 
                         var temp_key = arr[j];
-                        temp[name_user][key][temp_key]= temp_value;
+                        temp[name_user][key][temp_key]= encodeHTML(temp_value);
                     }
                 }
             }

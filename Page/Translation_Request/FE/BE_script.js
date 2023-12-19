@@ -46,14 +46,14 @@
     btn_ok_approval.addEventListener("click",function()
         {
             var link = document.getElementById("link_file_json").innerHTML;
-            var name_translator = $("#name_translator").val();
-            var sect_translator = $("#sect_translator").val();
-            var mail_translator = $("#mail_translator").val();
-            var company_translator= $("#company_translator").val();
-            var name_mrg = $("#name_mrg").val();
-            var sect_mrg = $("#sect_mrg").val();
-            var mail_mrg = $("#mail_mrg").val();
-            var company_mrg = $("#company_mrg").val(); 
+            var name_translator = encodeHTML($("#name_translator").val());
+            var sect_translator = encodeHTML($("#sect_translator").val());
+            var mail_translator = encodeHTML($("#mail_translator").val());
+            var company_translator= encodeHTML($("#company_translator").val());
+            var name_mrg = encodeHTML($("#name_mrg").val());
+            var sect_mrg = encodeHTML($("#sect_mrg").val());
+            var mail_mrg = encodeHTML($("#mail_mrg").val());
+            var company_mrg = encodeHTML($("#company_mrg").val()); 
 
             if (name_translator !=="" && sect_translator !=="" && mail_translator !== "" && company_mrg !=="" && name_mrg !=="" && sect_mrg !=="" && mail_mrg !=="" && company_translator !=="")
                 {
@@ -72,7 +72,7 @@
     // ================== button set deadline OK===========================
     var btn_ok_deadline = document.getElementById("Translation_Request_Set_dealine_ok");
     btn_ok_deadline.addEventListener("click",function(){
-    var set_deadline= ($("#Translation_Request_set_deadline").val());
+    var set_deadline= encodeHTML($("#Translation_Request_set_deadline").val());
     var id_= document.getElementById("choose_id").innerHTML;
     var request= document.getElementById("choose_rq").innerHTML;
     if (set_deadline !=="")
@@ -287,7 +287,7 @@ btn_translator_send_mail.addEventListener("click",function(){
             var id_cell = String("td_language_"+String(i)+"_"+String(j));
             var id_txt = String("td_textid_"+String(i)+"_2");
             var id_language = String("th_language_1_"+String(j))
-            var value_td = ((document.getElementById(id_cell).innerHTML));
+            var value_td = encodeHTML((document.getElementById(id_cell).innerHTML));
             var value_th = (document.getElementById(id_language).innerHTML);
             var value_txt = (document.getElementById(id_txt).innerHTML);
             data['translation_request'][value_txt]['language'][value_th]['content']=value_td;

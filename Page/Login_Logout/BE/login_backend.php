@@ -32,6 +32,8 @@
             $user[$row['mail']]['type'] = $row['type'];
             $user[$row['mail']]['sect'] = $row['sect'];
             $user[$row['mail']]['name'] = $row['name'];
+            $user[$row['mail']]['countLogin'] = $row['countLogin'];
+            $user[$row['mail']]['userStatus'] = $row['userStatus'];
         };
 
     if ($pass_info_encode == $user[$email_info]['pass'] and $user[$email_info]['userStatus'] == 'unblocked')
@@ -60,11 +62,24 @@
             $session_value = $user[$email_info]['sect'];
             $_SESSION[$session_name] = $session_value;
             // Login sucess
+            $update_userStatus = $qr -> update_userStatus($db,'unblocked', $email_info);
+            $update_countLogin = $qr -> update_countLogin($db, 0, $email_info);
             echo 1;
         }
     else 
         {
-            echo 0;
+            if ($user[$email_info]['countLogin'] < 6 )
+                {
+                    $user[$email_info]['countLogin'] = $user[$email_info]['countLogin'] + 1;
+                    $update_countLogin = $qr -> update_countLogin($db, $user[$email_info]['countLogin'], $email_info);
+                    echo 0;
+                }
+            else
+                {
+                    $update_userStatus = $qr -> update_userStatus($db,'blocked', $email_info);
+                    echo -1;
+                }
+            
         }
 
 ?>

@@ -45,6 +45,13 @@ if(table_list_validator_m_v !== null){
 }
 
 
+function encodeHTML(input) {
+  return input.replace(/&/g, '&amp;')
+              .replace(/</g, '&lt;')
+              .replace(/>/g, '&gt;')
+              .replace(/"/g, '&quot;')
+              .replace(/'/g, '&#39;');
+}
 
 </script>
 

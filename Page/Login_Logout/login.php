@@ -11,6 +11,9 @@
         session_destroy();
       }
 
+  // Generate CSRF token
+  $csrfToken = bin2hex(random_bytes(32));
+  $_SESSION['csrf_token'] = $csrfToken;
 ?>
 <head>
 <title>Login</title>
@@ -28,6 +31,7 @@
           <div class="user-box">
             <input id="email" type="text" name="" required = "" >
             <label>Email</label>
+	          <input type="hidden" name="token" value="<?php echo htmlspecialchars($csrfToken, ENT_COMPAT, 'UTF-8') ;?>">
           </div>
           <div class="user-box">
             <input id="pass" type="password" name="" required="" >
@@ -69,32 +73,36 @@
     }
   }
 
-  // Check ID , Pass 
+  // Check ID ,Pass 
   $("document").ready(function(){
-    $('#btn_login').click(function() {
+    $('#btn_login').click(function(){
       var mail = $("#email").val();
       var password = $("#pass").val();
       if (mail == "" || password == "")
-      {
-        //nothing
-      }
+          {
+            //nothing
+          }
       else 
-      {
-        $("document").ready(function(){
-          $.post("BE/login_backend.php", {email : mail, pass : password}, function(data){
-            var result = Number(data);
-            if ( result === 1)
-                {
+          {
+            $("document").ready(function(){
+              $.post("BE/login_backend.php", {email : mail, pass : password}, function(data){
+                var result = Number(data);
+                if ( result === 1)
+                  {
                     location.href = "Capture.php";
-                }
-            else 
-                {
+                  }
+                else if ( result === -1)
+                  {
+                    alert( "Your account has been blocked due to entering the wrong password too many times.");
+                    alert( "Please contact to your manager to unblock account !")
+                  }
+                else 
+                  {
                     alert( "Please check email and password");
-                };
-
-          });
-        });
-      };
+                  };
+              });
+            });
+          };
     });
   });
 </script>

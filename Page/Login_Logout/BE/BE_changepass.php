@@ -1,4 +1,10 @@
 <?php
+ //TOKEN check 
+ $token = filter_input(INPUT_POST, 'token');
+ if (empty($_SESSION['csrf_token']) || $token !== $SESSION['csrf_token']) {
+   die('Token is not valid. Please use the official screen.'); 
+ }
+ 
 $email = $_POST['email'];
 $old_pass = $_POST['old_pass'];
 $new_pass = $_POST['new_pass'];

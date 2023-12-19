@@ -58,7 +58,7 @@
         {
             var language_th =document.getElementById("th_language_1_9").innerHTML
             var mail =document.getElementById(language_th + "_mail").value;
-            var deadline = document.getElementById(language_th + "_deadline").value;
+            var deadline = encodeHTML(document.getElementById(language_th + "_deadline").value);
             $(document).ready(function(){
                 $.post("../../BE/BE_MANAGER_Json_add.php", {language_th:language_th, mail:mail, deadline:deadline, request:"<?php echo $request; ?>"}, function(data){
                     alert(data);

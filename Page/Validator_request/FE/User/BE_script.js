@@ -26,16 +26,16 @@
         btn_set_approval.addEventListener("click",function(){
             var flag = document.getElementById("flag").value;
             var request = document.getElementById("request").value;
-            var name_mrg = document.getElementById("name_mgr").value;
-            var sect_mgr = document.getElementById("sect_mgr").value;
-            var mail_mgr = document.getElementById("mail_mgr").value;
-            var company_mgr = document.getElementById("company_mgr").value;
-            var name_validator = document.getElementById("name_validator").value;
-            var sect_validator = document.getElementById("sect_validator").value;
-            var mail_validator = document.getElementById("mail_validator").value;
-            var company_validator = document.getElementById("company_validator").value;
-            var link_file_json_add = document.getElementById("link_file").innerHTML;
-            var language_th =document.getElementById("th_language_1_9").innerHTML;
+            var name_mrg = encodeHTML(document.getElementById("name_mgr").value)
+            var sect_mgr = encodeHTML(document.getElementById("sect_mgr").value)
+            var mail_mgr = encodeHTML(document.getElementById("mail_mgr").value)
+            var company_mgr = encodeHTML(document.getElementById("company_mgr").value)
+            var name_validator = encodeHTML(document.getElementById("name_validator").value)
+            var sect_validator = encodeHTML(document.getElementById("sect_validator").value)
+            var mail_validator = encodeHTML(document.getElementById("mail_validator").value)
+            var company_validator = encodeHTML(document.getElementById("company_validator").value)
+            var link_file_json_add = document.getElementById("link_file").innerHTML
+            var language_th =document.getElementById("th_language_1_9").innerHTML
             $(document).ready(function()
                 {
                 $.post("../../BE/BE_USER_APPROVAL.php", {name_mrg:name_mrg,sect_mgr:sect_mgr,mail_mgr:mail_mgr

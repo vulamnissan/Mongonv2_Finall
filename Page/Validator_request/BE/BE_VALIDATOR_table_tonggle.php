@@ -378,9 +378,9 @@ send_output.addEventListener("click", function(){
             language_text.push(language[k].innerHTML);
             language_arr.push(word[k].id);
             result_area_arr.push(result_area[k].options[result_area[k].selectedIndex].text);
-            reason_arr.push(reason[k].value);
-            word_arr.push(word[k].value);
-            over_arr.push(over[k].innerHTML);
+            reason_arr.push(encodeHTML(reason[k].value));
+            word_arr.push(encodeHTML(word[k].value));
+            over_arr.push(encodeHTML(over[k].innerHTML));
             language_table.push(result_area[k].name)
         };
 

@@ -1,4 +1,10 @@
 <?php
+  //TOKEN check 
+  $token = filter_input(INPUT_POST, 'token');
+  if (empty($_SESSION['csrf_token']) || $token !== $SESSION['csrf_token']) {
+    die('Token is not valid. Please use the official screen.');
+  }
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $target_dir = "update_to_the_spec_file/";
 

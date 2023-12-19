@@ -3,6 +3,9 @@ $pageTitle4 = "Spec tender File Export";
 ?>
     <?php 
         require "../template/header.php"; 
+        // Generate CSRF token
+        $csrfToken = bin2hex(random_bytes(32));
+        $_SESSION['csrf_token'] = $csrfToken;
     ?>
 
   <link rel="stylesheet" href="Spec_tender_file_export.css">
@@ -32,6 +35,7 @@ $pageTitle4 = "Spec tender File Export";
 <form style="margin-bottom: 5px"  target="blank" action="upload_action.php" class ="table_Spec_tender_file_export_container" method="post" enctype="multipart/form-data">
     <input type="submit" class="btn_Spec_tender_file_export selectfile" id="btn_table_Spec_tender_file_export_Select_wording_list" value = "Upload file used compare"></input>
     <input type="file" name="excelFile" class="table_Spec_tender_file_export" id="btn_table_Spec_tender_file_export_Select_wording_list_display"></input>
+    <input type="hidden" name="token" value="<?php echo htmlspecialchars($csrfToken, ENT_COMPAT, 'UTF-8') ;?>">
 </form>
 
 <div class="table_Spec_tender_file_export_container">

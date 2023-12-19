@@ -1,4 +1,9 @@
 <?php
+  //TOKEN check 
+  $token = filter_input(INPUT_POST, 'token');
+  if (empty($_SESSION['csrf_token']) || $token !== $SESSION['csrf_token']) {
+    die('Token is not valid. Please use the official screen.'); 
+  }
 
   include "../Translation_Request/BE/MySql.php";
   $db = new connect_DB($_SESSION['db_host'], $_SESSION['db_dbname'], $_SESSION['db_user'], $_SESSION['db_pass']);
@@ -30,6 +35,10 @@
   $htmlBody = 'Thank for login website .'.'<br><br>' . 'Your capture : <h1>'.$capture.'</h1>';
   Send_Mail($subject,$htmlBody,$mail_sender,$mail_receiver);
 
+  // Generate new CSRF token
+  $csrfToken = bin2hex(random_bytes(32));
+  $_SESSION['csrf_token'] = $csrfToken;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,6 +56,7 @@
             </center>
           <div class="user-box">
             <input id="capture" type="text" name="" required = "" >
+            <input id="token" type="hidden" name="token" value="<?php echo htmlspecialchars($csrfToken, ENT_COMPAT, 'UTF-8') ;?>">
             <label>Capture</label>
           </div>
             <center>
