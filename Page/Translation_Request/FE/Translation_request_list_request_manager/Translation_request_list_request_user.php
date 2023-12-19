@@ -38,9 +38,7 @@
 </div>
 
 <div class="btn_back">
-    <button id="btn_back_to_home"  >
-      ← Back
-    </button>
+    <button id="btn_back_to_home">Back</button>
 </div>
 
 
@@ -54,10 +52,8 @@
 <script>
     var btn_new_request = document.getElementById("btn_Translation_Request_new_request");
     btn_new_request.addEventListener("click",function(){
-        console.log("hihi");
         // Next page
         window.location.href = "../Translation_Request.php";
-        // alert("asda");
     });
 </script>
 

@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^$ /mongonv2_official/Page/Login_Logout/login.php [R=301,L]

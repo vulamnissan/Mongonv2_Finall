@@ -16,7 +16,6 @@
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi laboriosam at voluptas"
     ];
 
-    // Đánh dấu tiêu đề được chọn
     var boxes = document.getElementsByClassName("box");
     for (var i = 0; i < boxes.length; i++) {
       if (i + 1 === index) {
@@ -26,11 +25,9 @@
       }
     }
 
-    // Thay đổi nội dung của tiêu đề và mô tả
     document.getElementById("title").innerText = titles[index - 1];
     document.getElementById("description").innerText = descriptions[index - 1];
     
-    // Gán liên kết vào nút "start"
     var startButton = document.getElementById("startButton");
     startButton.setAttribute("data-url", url);
   }
@@ -39,7 +36,6 @@
     var startButton = document.getElementById("startButton");
     var url = startButton.getAttribute("data-url");
     window.location.href = url;
-        // Ban dau link se dan den function1
         if (!url) {
             url = '';
                   }
@@ -66,16 +62,32 @@
 
 // -----------------------------hidden function that shows notifications and accounts------------- 
 
-var notificationList = document.getElementById("notification-list");
+
 var iconButton = document.getElementById("account-button");
-iconButton.addEventListener("click", function() {
-  var notificationList_acc = document.getElementById("notification-list-acc");
-  if (notificationList_acc.style.display === "" || notificationList_acc.style.display === "none") {
+var notificationList_acc = document.getElementById("notification-list-acc");
+var isDropdownOpen = false;
+
+iconButton.addEventListener("click", function(event) {
+  event.stopPropagation();
+
+  if (!isDropdownOpen) {
     notificationList_acc.style.display = "grid";
+    isDropdownOpen = true;
+  } else {
+    notificationList_acc.style.display = "none";
+    isDropdownOpen = false;
   }
-  else {notificationList_acc.style.display = "none";
-}
-})
+});
+
+document.addEventListener("click", function(event) {
+  var targetElement = event.target;
+  var isClickedInside = notificationList_acc.contains(targetElement) || iconButton.contains(targetElement);
+
+  if (!isClickedInside) {
+    notificationList_acc.style.display = "none";
+    isDropdownOpen = false;
+  }
+});
 
 // -----------------------------hidden function that shows notifications and accounts------------- 
 
@@ -87,56 +99,29 @@ iconButton.addEventListener("click", function() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-// Lấy tham chiếu đến các thẻ div trong thẻ có id home_function
 var divs = document.querySelectorAll('#home_function > div.box');
-
-// Lấy tham chiếu đến thẻ p có id account_type
 var accountType = document.getElementById('account_type');
 
-// Kiểm tra nội dung của thẻ p account_type
 if (accountType.textContent === 'User') {
-  // Với User, vô hiệu hóa click cho các thẻ div trừ Database_of_wording và Validator_request
   for (var i = 0; i < divs.length; i++) {
     if (divs[i].id !== 'Database_of_wording' && divs[i].id !== 'Spec_tender_File_Export' && divs[i].id !== 'Translation_request' && divs[i].id !== 'Validator_request' && divs[i].id !== 'Vehicle_manage') {
       divs[i].style.pointerEvents = 'none';
-      divs[i].classList.add('disabled'); // Thêm lớp .disabled
+      divs[i].classList.add('disabled'); 
       divs[i].style.color = '#444444';   
     }
   }
 } 
 else if (accountType.textContent === 'Manager') {
-  // Với Manager, bỏ vô hiệu hóa click cho tất cả các thẻ div
   for (var i = 0; i < divs.length; i++) {
     divs[i].style.pointerEvents = 'auto';
-    divs[i].classList.remove('disabled'); // Xóa lớp .disabled (nếu có)
+    divs[i].classList.remove('disabled'); 
   }
 } 
-// else if (accountType.textContent === 'Translator') {
-//   // Với abc, chỉ cho phép click vào thẻ div có id Vehicle_manage
-//   for (var i = 0; i < divs.length; i++) {
-//     if (divs[i].id !== 'Translation_request') {
-//       divs[i].style.pointerEvents = 'none';
-//       divs[i].classList.add('disabled'); // Thêm lớp .disabled
-//       divs[i].style.color = '#444444';  
-//     }
-//   }
-// }
-// else if (accountType.textContent === 'Validator') {
-//   // Với abc, chỉ cho phép click vào thẻ div có id Vehicle_manage
-//   for (var i = 0; i < divs.length; i++) {
-//     if (divs[i].id !== 'Validator_request') {
-//       divs[i].style.pointerEvents = 'none';
-//       divs[i].classList.add('disabled'); // Thêm lớp .disabled
-//       divs[i].style.color = '#444444';  
-//     }
-//   }
-// }
+
 if (accountType.textContent === 'Validator') {
   var home_function = document.getElementById('home_function');
   var home_container = document.getElementById('home_container');
   var viewbox = document.getElementById('viewbox');
-  // Thay đổi nội dung của thẻ div có id viewbox
   var viewbox = document.getElementById('viewbox');
   var validatorRequestDiv = document.getElementById('Validator_request');
   var validatorRequestTitle = validatorRequestDiv.innerText;
@@ -158,11 +143,10 @@ if (accountType.textContent === 'Translator') {
   var home_function = document.getElementById('home_function');
   var home_container = document.getElementById('home_container');
   var viewbox = document.getElementById('viewbox');
-  // Thay đổi nội dung của thẻ div có id viewbox
   var viewbox = document.getElementById('viewbox');
   var validatorRequestDiv = document.getElementById('Translation_request');
   var validatorRequestTitle = validatorRequestDiv.innerText;
-  var validatorRequestDescription = 'Mày là translator';
+  var validatorRequestDescription = 'translator';
 
   var titleElement = viewbox.querySelector('h1#title');
   var descriptionElement = viewbox.querySelector('p#description');
@@ -192,21 +176,6 @@ if (accountType.textContent === 'Translator') {
 
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////switch tables between functions////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////Translation request  Display type popup////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////Function to display popup for Meter Display type//////////////////////////////////////////////////////////////////////////////////////////////
@@ -294,21 +263,15 @@ var link="";
   });
 
   
-
-  // Lắng nghe sự kiện nhấn nút chuyen sang giao dien update spec tender file export
-  
   document.getElementById("btn_Spec_tender_file_export_Start_comparison").addEventListener("click", function() {
-    // Chuyển hướng đến trang HTML khác
     var check_ouput_version_number = document.getElementById("btn_table_Spec_tender_file_export_Output_version_number_input");
     var check_select_language = document.getElementById('btn_table_Spec_tender_file_export_Select_language_display');
 
-    // console.log(check_ouput_version_number.value);
-    // console.log(check_select_language.value);
-    // console.log(link);
+    var check_select_project = document.getElementById('select_project');
+    let select_project = check_select_project.options[check_select_project.selectedIndex].text;
 
-    if (check_ouput_version_number.value != "" && link != "" ){
-      link = link + "_@_" + check_ouput_version_number.value;
-      // arr_language = arr_language + "_@_" + check_ouput_version_number.value;
+    if (check_ouput_version_number.value != "" && link != "" && select_project != "Select Car" ){
+      link = link + "_@_" + check_ouput_version_number.value + "_@_" + select_project ;
       window.location.href = link;
     }
   });

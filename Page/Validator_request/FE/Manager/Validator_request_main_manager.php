@@ -1,3 +1,5 @@
+<!--// CONTENT: FE_main_manager
+// OUTPUT: FE_main_manager-->
 <?php require "../../../template/header.php"; ?>
   <link rel="stylesheet" href="../Validator_request.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -55,9 +57,7 @@
 
               </div>
   <div class="btn_back">
-    <button id="btn_back_to_home"  >
-      ← Back
-    </button>
+    <button id="btn_back_to_home">Back</button>
 
 </div>
 <!-- ------------------------------------------------------Set password-------------------------------- -->
@@ -72,11 +72,11 @@
                     <div   id="Validator_Request_form_set_password"   >
                             <span>
                               <label for="fname">Create password:</label>
-                              <input   id="create_pass" type="text"  name="fname">
+                              <input   id="create_pass" type="password"  name="fname">
                             </span>
                             <span>
                               <label for="lname">Confirm password:</label>
-                              <input     id="conf_pass" type="text"  name="lname">
+                              <input     id="conf_pass" type="password"  name="lname">
                             </span>
                     </div>
 

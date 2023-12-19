@@ -1,3 +1,4 @@
+// show popup Validator_Request_Set_password
 document.addEventListener("DOMContentLoaded", function() {
     function toggleModalSet_pass() {
         var modalContainer = document.getElementById("Validator_Request_Set_password");
@@ -17,59 +18,9 @@ document.addEventListener("DOMContentLoaded", function() {
     var buttonA2 = document.getElementById("Validator_Request_Set_password_ok");
     buttonA2.addEventListener("click", removeModalClassSet_pass);
 
-    // var buttonB1 = document.getElementById("Validator_Request_Set_password_ok");
-    // buttonB1.addEventListener("click", function(event) {
-    // var createPassInput = document.getElementById("create_pass");
-    // var confirmPassInput = document.getElementById("conf_pass");
-    // var lackOfInfoMsg = document.getElementById("lack_of_infor");
-    // var notMatchMsg = document.getElementById("not_macth");
-    // var header_setpass = document.getElementById("header_setpass");
-
-    // lackOfInfoMsg.style.display = "none";
-    // notMatchMsg.style.display = "none";
-
-    // if (createPassInput.value === "" || confirmPassInput.value === "") {
-    //     lackOfInfoMsg.style.display = "block";
-    //     header_setpass.style.display = "none";
-    //     event.preventDefault(); // Ngăn chặn hành vi mặc định
-    // } else if (createPassInput.value !== confirmPassInput.value) {
-    //     notMatchMsg.style.display = "block";
-    //     header_setpass.style.display = "none";
-    //     event.preventDefault(); // Ngăn chặn hành vi mặc định
-    // } else {
-    //     removeModalClassSet_pass();
-    //    // Lắng nghe sự kiện click của nút ok set pass
-
-
-    // document.getElementById('btn_Validator_request_Set_Approval').disabled = false;
-    // // document.getElementById('btn_Validator_request_Set_Approval').classList.add('btn');
-    // document.getElementById('btn_Validator_request_Set_Approval').style.background = "#252525";
-    // document.getElementById('btn_Validator_request_Set_Approval').style.border = "1px solid #D0CECE ";
-    // document.getElementById('btn_Validator_request_Set_Approval').style.cursor = "pointer";
-    // document.getElementById('btn_Validator_request_Set_Approval').style.animation = 'flashing-border 2s infinite';
-
-    // document.getElementById('btn_Validator_request_Set_Approval').addEventListener("click", function() {
-    // document.getElementById('btn_Validator_request_Set_Approval').style.animation = 'none';});
-
-
-    
-    
- 
-
-    // }
-    // });
-
-    // document.getElementById("form_Validator_Request_Set_password").addEventListener("submit", function(event) {
-    //   event.preventDefault(); // Ngăn chặn hành vi mặc định
-    //   // Xử lý dữ liệu form hoặc thực hiện các hành động khác
-    // });
     });
-
-
-
-
-
-
+// show popup Validator_Request_Set_password
+// show popup Validator_request_Set_Approval
     function toggleModalSet_Approval1() {
     var modalContainer2 = document.getElementById("Validator_request_Set_Approval");
     modalContainer2.classList.toggle("show");
@@ -105,13 +56,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (isInputInvalid) {
     lackOfInfoMsg2.style.display = "block";
-      event.preventDefault(); // Ngăn chặn hành vi mặc định
+      event.preventDefault(); 
     } else {
     removeModalClassSet_Approval1();
     document.getElementById('btn_Validator_request_Send_Approval').disabled = false;
-    // document.getElementById('btn_Validator_request_Send_Approval').classList.add('btn');
 
-    document.getElementById('btn_Validator_request_Send_Approval').style.background = "#252525";
+    document.getElementById('btn_Validator_request_Send_Approval').style.background = "var(--button_background)";
     document.getElementById('btn_Validator_request_Send_Approval').style.border = "1px solid #D0CECE ";
     document.getElementById('btn_Validator_request_Send_Approval').style.cursor = "pointer";
     document.getElementById('btn_Validator_request_Send_Approval').style.animation = 'flashing-border 2s infinite';
@@ -128,20 +78,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
     }
     });
-// hieenr thi table sau khi bam nut confirm
+// show popup Validator_request_Set_Approval
+
+
+
+
+// show table àter click confirm
 
 var Wraper_table_Validator_Request_Translator = document.getElementById('Wraper_table_Validator_Request_Translator')
 var Wraper_table_Validator_request = document.getElementById('Wraper_table_Validator_request')
 var confim_info = document.getElementById('btn_Validator_request_Confirm_translation')
 
 confim_info.addEventListener("click", function() {
-
         Wraper_table_Validator_Request_Translator.style.display = "block";
         Wraper_table_Validator_request.style.display = "none";
 
 
     });
-
+// show table àter click confirm
 
 
 

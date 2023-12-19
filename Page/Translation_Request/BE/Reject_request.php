@@ -1,11 +1,15 @@
 <?php
-    // $path = '../../../Data/UserData/2/test.json';
-
+    // CONTENT: MANAGER REJECT REQUET OF CREATOR
+    // INPUT: $id(MANAGER),$request
+    // OUPUT: DELETE FILE JSON AND SEND MAIL REJECT TO CREATOR
+    
+    //1. INPUT HANDLE
+    // 1.1 INPUT FROM GET
     $id=($_GET["id"]??"");
     $request=($_GET["rq"]??"");
     $path = str_replace(" ","",'../../../Data/UserData/'.$id.'/'.$request.'.json');
 
-    // =========================Gui mail======================
+    //1.2 INPUT FROM FILE JSON
     $jsonString = file_get_contents($path);
     $jsonData = json_decode($jsonString, true);
     
@@ -19,38 +23,24 @@
     $creator_company=$jsonData['creator']['company'];
     $creator_mail=$jsonData['creator']['mail'];
 
-    // $pw=$jsonData['password'];
+    // 2. CREATE AND SEND MAIL
+    require "../../send_mail.php";
+    $mail_sender = "email";
+    $name_receiver = $_SESSION['name'];
+    $mail_receiver = "email";
 
-    // $time=$jsonData['date'];
+    $subject_request = "Reject for additional information :".$request;
+    $htmlBody_request = "<h2>To: ".$creator_name. "</h2>"
+                                    ."<br>"
+                                    ."<h3>The below request for additional information can't approved, so please check the contents again.</h3>"
+                                    ."Request Number: ".$request.""
+                                    ."<p>Don't return to the sender of this mail.</p>"  
+                                    ."</br>"; 
 
-    // mail to manager
-    $subject = "Reject Translation Request ".$request;
-    $body = "To: ".$creator_name. "
-            \n
-            \n The below translation request has been sent to you, so please check it!
-            \n Request Number: ".$request."
-            \n
-            \n Receiver Engineering Contact Information:
-            \n==================================================
-            \n Company Name: ".$mgr_company." 
-            \n User Name: ".$mgr_name."
-            \n Department Code: ".$mgr_sect."
-            \n
-            \n Sender Engineering Contact Information:
-            \n==================================================
-            \n Company Name: ".$creator_company." 
-            \n User Name: ".$creator_name."
-            \n Department Code: ".$creator_sect."";
+    //2.1.2 SEND MAIL REQUEST TO MANAGER
+    Send_Mail($subject_request,$htmlBody_request,$mail_sender,$mail_receiver);  
 
-    // $attachmentPath = "test123.json";
-
-    $emailDraft = "mailto:?subject=" . $string = str_replace("+", " ", urlencode($subject)) . "&body=" . $string1 = str_replace("+", " ", urlencode($body)) . "&to=" . $creator_mail;
-
-    // Open the email draft in Outlook
-    $command = 'open "' . $emailDraft . '"';
-    shell_exec($command);
-    // echo $path;
-    // =========================Xoa file=====================
+    //3.2 DELETE FILE JSON
     $status=unlink($path);
     if ($status)
     {

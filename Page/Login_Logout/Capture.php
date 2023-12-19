@@ -1,55 +1,36 @@
 <?php
-  session_start();
+
+  include "../Translation_Request/BE/MySql.php";
+  $db = new connect_DB($_SESSION['db_host'], $_SESSION['db_dbname'], $_SESSION['db_user'], $_SESSION['db_pass']);
+  $qr= new Query("mongonv2");
   // Create Capture
-  $id = 1;
   $permitted_chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789zxcvbnmlkjhgfdsaqwertyuiop';
-        function generate_string($input, $strength = 5) {
-            $input_length = strlen($input);
-            $random_string = '';
-            for($i = 0; $i < $strength; $i++) {
-                $random_character = $input[mt_rand(0, $input_length - 1)];
-                $random_string .= $random_character;
-            }
-            return $random_string;
-        }
-        $string_length = 6;
-    $captcha_string = generate_string($permitted_chars, $string_length);
-    include "BE/connect_database.php";
-    $db = connect_db('localhost','mongonv2','root','');
-    // get data from database
-    $sql = "UPDATE user SET user.capcha = '".$captcha_string."' WHERE user.id = " . $id;
-    // $sql_user = "SELECT * FROM user WHERE user.id =" . $_COOKIE['ID'];
-    $update_status = $db -> query($sql);
-    // echo $_COOKIE['ID'];
-    $_SESSION['capture'.$_COOKIE['ID']] =  $captcha_string;
-    // echo $_SESSION['capture'.$_COOKIE['ID']];
-    // echo $update_status;
+  function generate_string($input, $strength = 5) 
+      {
+          $input_length = strlen($input);
+          $random_string = '';
+          for($i = 0; $i < $strength; $i++) 
+              {
+                  $random_character = $input[mt_rand(0, $input_length - 1)];
+                  $random_string .= $random_character;
+              }
+          return $random_string;
+      }
+  $string_length = 6;
+  $captcha_string = generate_string($permitted_chars, $string_length);
+  $_SESSION['capture'.$_SESSION['ID']] = $captcha_string;
+  $capture = $captcha_string;
 
-    // $to = 'lamvuuet@gmail.com';
-    // $subject = 'Test Email';
-    // $message = 'This is a test email.';
-    // $headers = 'From: sender@example.com' . "\r\n" . 'Reply-To: sender@example.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
-    // if (mail($to, $subject, $message, $headers)) {
-    //    echo 'Email sent successfully.';} 
-    // else { 
-    //   echo 'Failed to send email.';}
-    $capture = $captcha_string;
-    $name_receiver = $_COOKIE['name'];
-    $mail_receiver = "lamvuuet@gmail.com";
-    
-    // mail to manager
-    $subject = "Capture login : ";
-    $body = "To: ".$name_receiver. "
-            \n Capture : ".$capture."
-            ";
-    $emailDraft = "mailto:?subject=" . $string = str_replace("+", " ", urlencode($subject)) . "&body=" . $string1 = str_replace("+", " ", urlencode($body)) . "&to=" . $mail_receiver;
-    
-    // Open the email draft in Outlook
-    $command = 'open "' . $emailDraft . '"';
-    shell_exec($command); 
+  //SENDMAIL
+  $mail_sender = "email";
+  $name_receiver = $_SESSION['name'];
+  $mail_receiver = "email";
+  include "../../Page/send_mail.php";
+  $subject = 'EIW LOGIN CAPTURE';
+  $htmlBody = 'Thank for login website .'.'<br><br>' . 'Your capture : <h1>'.$capture.'</h1>';
+  Send_Mail($subject,$htmlBody,$mail_sender,$mail_receiver);
+
 ?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,7 +42,6 @@
 <body>
     <div class="overlay"></div>
     <div class="login-box">
-        <form autocomplete="off">
             <center>
                 <h1>METER MONGON</h1>
             </center>
@@ -80,27 +60,33 @@
     $("document").ready(function(){
       $('#btn_login').click(function() {
         var capture_code = $("#capture").val();
-        // alert(capture_code);
-        if (capture_code == "" )
-        {
-          alert("Please input capture !")
-        }
-        else 
-        {
-          $("document").ready(function(){
-            // alert(capture_code);
-            $.post("BE/capture_check.php", {capture_code : capture_code}, function(data){
-              var result = Number(data);
-              if ( result == 1){
-                location.href = "../home/home.php";
-              }
-              else {
-                alert( "Please input capture agains !");
-              };
+        var token = $("#token").val();
 
-            });
-          });
-        };
+        if (capture_code == "" )
+              {
+                alert("Please input capture !")
+              }
+        else
+            {
+              $("document").ready(function(){
+                $.post("BE/capture_check.php", {capture_code : capture_code, token: token}, function(data){
+                  var result = Number(data);
+                  if ( result == 1)
+                      {
+                        location.href = "../home/home.php";
+                      }
+                  else if(result == -1)
+                      {
+                        alert( "Token is not valid. The path is insecure. Please check the path before entering the Capture !");
+                      }
+                  else 
+                      {
+                        alert( "Please input capture agains !");
+                      };
+
+                });
+              });
+            };
       });
     });
 </script>

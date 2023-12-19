@@ -1,56 +1,71 @@
 
 <?php
-    session_start();
     $email_info = (string)$_POST["email"];
     $pass_info = (string)$_POST["pass"];
+    $pass_info_encode = hash("sha256", $pass_info);
+
+    // Get database info
+    require_once "../../vendor/autoload.php";
+    use SecureEnvPHP\SecureEnvPHP;
+    (new SecureEnvPHP())->parse('../../.env.enc', '../../.env.key');
+
+        $_SESSION['db_host'] = getenv('DB_HOST');
+        $_SESSION['db_dbname'] = getenv('DB_DATABASE');
+        $_SESSION['db_user'] = getenv('DB_USER');
+        $_SESSION['db_pass'] = getenv('DB_PASSWORD');
+
+        $_SESSION['mail_host'] = getenv('MAIL_HOST');
+        $_SESSION['mail_user'] = getenv('MAIL_USER');
+        $_SESSION['mail_pass'] = getenv('MAIL_PASS');
     
-    include "connect_database.php";
-    $db = connect_db('localhost','mongonv2','root','');
-    // get data from database
-    $sql_user = "SELECT * FROM user";
-    $record_user = $db -> query($sql_user);
-    
+    include "../../Translation_Request/BE/MySql.php";
+    $db = new connect_DB($_SESSION['db_host'],$_SESSION['db_dbname'],$_SESSION['db_user'],$_SESSION['db_pass']);
+    $qr= new Query("mongonv2");
+
+    // Get data from database
+    $record_user = $qr -> select_data($db,"user");
     $user = []; 
     while ($row = mysqli_fetch_assoc($record_user))
-    {
-        $user[$row['mail']]['ID'] = $row['id'];
-        $user[$row['mail']]['pass'] = $row['password'];
-        $user[$row['mail']]['type'] = $row['type'];
-        $user[$row['mail']]['sect'] = $row['sect'];
-        $user[$row['mail']]['name'] = $row['name'];
-    };
-    // Set cookie
-    $cookie_name = "email";
-    $cookie_value = $email_info;
-    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+        {
+            $user[$row['mail']]['ID'] = $row['id'];
+            $user[$row['mail']]['pass'] = $row['password'];
+            $user[$row['mail']]['type'] = $row['type'];
+            $user[$row['mail']]['sect'] = $row['sect'];
+            $user[$row['mail']]['name'] = $row['name'];
+        };
 
-    $cookie_name = "pass";
-    $cookie_value = $pass_info;
-    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+    if ($pass_info_encode == $user[$email_info]['pass'] and $user[$email_info]['userStatus'] == 'unblocked')
+        {
+            $session_name = "email";
+            $session_value = $email_info;
+            $_SESSION[$session_name] = $session_value;
 
-    //Check info dang nhap
+            $session_name = "pass";
+            $session_value = $pass_info;
+            $_SESSION[$session_name] = $session_value;
 
-    if ($pass_info == $user[$email_info]['pass'])
-    {
-        $cookie_name = "name";
-        $cookie_value = $user[$email_info]['name'];
-        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+            $session_name = "name";
+            $session_value = $user[$email_info]['name'];
+            $_SESSION[$session_name] = $session_value;
+            
+            $session_name = "type";
+            $session_value = $user[$email_info]['type'];
+            $_SESSION[$session_name] = $session_value;
 
-        $cookie_name = "type";
-        $cookie_value = $user[$email_info]['type'];
-        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+            $session_name = "ID";
+            $session_value = $user[$email_info]['ID'];
+            $_SESSION[$session_name] = $session_value;
 
-        $cookie_name = "ID";
-        $cookie_value = $user[$email_info]['ID'];
-        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-
-        //Login sucess
-        echo 1;
-    }
+            $session_name = "sect";
+            $session_value = $user[$email_info]['sect'];
+            $_SESSION[$session_name] = $session_value;
+            // Login sucess
+            echo 1;
+        }
     else 
-    {
-        echo 0;
-    }
+        {
+            echo 0;
+        }
 
 ?>
 

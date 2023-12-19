@@ -1,4 +1,8 @@
 
+
+
+//sidebar hidden function--------------------------------------
+  
   function toggleSidebar() {
     var sidebar = document.getElementById('sidebar');
     sidebar.classList.toggle('open');
@@ -8,24 +12,40 @@
 
 
 //-----------------------------hidden function that shows notifications and accounts-----
+
+
+
 var iconButton = document.getElementById("account-button");
-
-iconButton.addEventListener("click", function() {
-var notificationList = document.getElementById("notification-list");
 var notificationList_acc = document.getElementById("notification-list-acc");
+var isDropdownOpen = false;
 
-if (notificationList_acc.style.display === "" ||notificationList_acc.style.display === "none") {
-  notificationList_acc.style.display = "grid";
+iconButton.addEventListener("click", function(event) {
+  event.stopPropagation();
 
-  
-} else {
-  notificationList_acc.style.display = "none";
-}
+  if (!isDropdownOpen) {
+    notificationList_acc.style.display = "grid";
+    isDropdownOpen = true;
+  } else {
+    notificationList_acc.style.display = "none";
+    isDropdownOpen = false;
+  }
 });
+
+
+document.addEventListener("click", function(event) {
+  var targetElement = event.target;
+  var isClickedInside = notificationList_acc.contains(targetElement) || iconButton.contains(targetElement);
+
+  if (!isClickedInside) {
+    notificationList_acc.style.display = "none";
+    isDropdownOpen = false;
+  }
+});
+//-----------------------------hidden function that shows notifications and accounts-----
+
 ///////////////////////////////////////////////////////////////////////
 //All this code is just for smooth table scrolling/////////////////////
 ///////////////////////////////////////////////////////////////////////
-// Lấy thẻ th đầu tiên
 window.addEventListener('load', function() {
   const table = document.getElementById('myTable_Database_of_wording');
   const firstColumn = table.getElementsByTagName('th')[0];
@@ -68,15 +88,8 @@ window.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('scroll', updateStickyThead);
 });
 
-///////////////////////////////////////////////////////////////////////
-//All this code is just for smooth table scrolling/////////////////////
-///////////////////////////////////////////////////////////////////////
 
-
-
-  // Lắng nghe sự kiện nhấn nút
   document.getElementById("btn_Information_about_TEXT_ID").addEventListener("click", function() {
-    // Chuyển hướng đến trang HTML khác
     window.location.href = "Information about TEXT ID/Information_about_TEXT_ID.php";
   });
 
@@ -90,3 +103,6 @@ window.addEventListener('DOMContentLoaded', function() {
     header1.style.transform = 'translateY(' + scrollTop + 'px)';
     });
     });
+///////////////////////////////////////////////////////////////////////
+//All this code is just for smooth table scrolling/////////////////////
+///////////////////////////////////////////////////////////////////////

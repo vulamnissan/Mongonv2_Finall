@@ -1,21 +1,15 @@
 <?php
-    // ======================== can truyen vao ==========================
-    
-    // $path = '../../../Data/UserData/2/TR4.json';
+// CONTENT: CREATE TABLE COMFIRM TRANSLATION
+// INPUT: $check_show
+// OUTPUT: TABLE CONFIRM TRANSLATION 
+// 1. INPUT HANDLE
+// 1.1. CHECK NEW REQUEST OR OLD REQUEST
     $check_show=$_GET["checkshow"]??"";
-
-    // $id=$_GET["id_user"]??"";
-
     if ($check_show=="request")
     {
         $id=$_GET["id_user"]??"";
         $request=$_GET["rq"]??"";
         $path = str_replace(" ","",'../../../Data/UserData/'.$id.'/'.$request.'.json');
-        // $path = '../../../Data/UserData/2/TR1.json';
-        // $request=$path1;
-        // echo ($path);
-        // echo ($path1);
-        // echo $request;
     }
     else{
         $path=$_GET["link_file"]??"";
@@ -23,30 +17,19 @@
         $request=$arr_path[count($arr_path)-1];
         $request=str_replace(".json","",$request);
     }
-    
-    // $path=$_POST["link_file"]??"";
-    // echo $path;
-    
-    // $request="asd";
-
-
-    //===================================================================
-
+   
+// 1.2. GET DATA FROM FILE JSON
     $jsonString = file_get_contents($path);
     $jsonData = json_decode($jsonString, true);
-    // echo "<pre>";
-    // print_r($jsonData);
-
-    // check cac ngon ngu da duoc tick dich
+// 1.3. CHECK REQUEST TRANSLATED
     $arr_col=[];
     $arr_col['US_English']="1";
     foreach ($jsonData['translation_request'] as $text=>$value1)
     {
         foreach ($jsonData['translation_request'][$text]['language'] as $language=>$value2)
         {
-            if ($value2['content'] === "1")
+            if ($value2['content'] !== "0")
             {   
-                // echo $value2;
                 if(array_key_exists($language, $arr_col))
                 {
 
@@ -58,10 +41,8 @@
             }
         }
     }
-    // echo "<pre>";
-    // print_r($arr_col);
 ?>
-
+<!-- 2. OUTPUT TABLE CONFIRM TRANSLATION -->
 <html>
     <table id="myTable_Translation_Request_info">
         <thead>
@@ -87,8 +68,6 @@
                     $count_col=1;
                     foreach ($jsonData['translation_request'] as $text=>$value1)
                     {
-                        // echo "<pre>";
-                        // print_r($text);
                         echo "<tr>";
                         echo "<td id='td_request_".$count_row."_".$count_col."'>".$request."</td>";
                         $count_col=$count_col+1;
@@ -98,7 +77,13 @@
                         $count_col=$count_col+1;
                         echo "<td id='td_displaytype_".$count_row."_".$count_col."'>".$value1['display_type']."</td>";
                         $count_col=$count_col+1;
-                        echo "<td id='td_kayout_".$count_row."_".$count_col."'>".$value1['layout']."</td>";
+
+                        $firstUnderscorePos = strpos($text, '_');
+                        $secondUnderscorePos = strpos($text, '_', $firstUnderscorePos + 1);
+                        $pic_name = substr($text, 0, $secondUnderscorePos);
+                        $link_pic_layout = "../../../Data/ProjectData/Layout_pic/" . $pic_name . ".PNG";
+                        echo "<td id='td_layout_".$count_row."_".$count_col."'>"."<img id = 'layout_pic' height = '80px' src='".$link_pic_layout."'>"."</td>";
+
                         $count_col=$count_col+1;
                         echo "<td id='td_limitlenght_".$count_row."_".$count_col."'>".$value1['limit_lenght']."</td>";
                         $count_col=$count_col+1;
@@ -115,14 +100,18 @@
                             else
                             {
                                 $count_col=$count_col+1;
-                                // echo ($value1['language'][$key]);
                                 if ($value1['language'][$key]['content']=== "1")
                                 {
                                     echo "<td id='td_language_".$count_row."_".$count_col."' class='blank'></td>";
                                 }
+                                else if  ($value1['language'][$key]['content']=== "0")
+                                {
+                                
+                                    echo "<td id='td_language_".$count_row."_".$count_col."' class='gray'></td>";
+                                }
                                 else
                                 {
-                                    echo "<td id='td_language_".$count_row."_".$count_col."' ></td>";
+                                    echo "<td id='td_language_".$count_row."_".$count_col."' >".$value1['language'][$key]['content']."</td>";
                                 }
                                     
                             }
@@ -133,14 +122,4 @@
                ?>
         </tbody>
     </table>
-
-    <!-- <style>
-    td,th{
-        border:2px solid black;
-    }
-    .blank{
-        background-color: yellow ;
-    }
-    </style> -->
-
 </html>

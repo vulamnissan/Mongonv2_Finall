@@ -1,11 +1,36 @@
+:root{
+  --backround:  #e7e9f6;
+  --backround_sub:  #cfd3ed;
+  --corlor_text:#6B4CD5 ;
+  --corlor_text_hover:#ffffff;
+  --box-shadow: -1px 2px 12px 1px #000000;
+  --box-shadow_sidebar: none;
+  --color_element:#6B4CD5 ;
+  --border_button:1px solid #D0CECE;
+  --boxshadow_hover:1px 0px 10px 6px #6B4CD5 ;
+  --border:2px solid #bfbfbf;
+  --border_h:#ffffff;
+  --boxshadow_popup: 0 0 12px 3px #949494;
+  --button_background_hover:#e94801 ;
+  --button_background:#ffffff; ;
+  --border_button:1px solid #bfbfbf;
+  --button_corlortext:#ffffff;
+ 
+}
+
+
+
 html,body{
+  font-family: 'Calibri','Arial','Franklin Gothic Medium', 'Arial Narrow', 'sans-serif';
     height: 100%;
 }
 
 body {
     margin: 0;
     padding: 0;
-    background-color: #252525;
+    background-color:var(--backround);
+    display: flex;
+    flex-direction: column;
   }
 header{
   display: flex;
@@ -13,11 +38,11 @@ header{
   padding-top: 15px;
 }
 
-/* -----------------------------css for list thong bao-------------- */
+/* -----------------------------css for bell and account-------------- */
 
 .notification-list {
   text-align: center;
-  color: #ffffff;
+  color: var(--corlor_text);
   display: none;
   position: absolute;
   top: 100%;
@@ -26,23 +51,20 @@ header{
   grid-template-rows: repeat(auto-fit, 1fr);
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
-  background-color:#323232;
+  background-color:var(--backround_sub);
   border:none;
   border-radius: 4px;
   padding: 10px;
-  box-shadow: -1px 2px 12px 1px #000000;
+  box-shadow: var(--box-shadow);
 }
 
-/* -----------------------------css for list thong bao-------------- */
-
-/* -------------------------------------css for bell and account-------------------------------- */
 #account-button{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #252525;
+  background-color: var(--backround);
   border: none;
-  color: #e94801;
+  color:var(--color_element);
   width: fit-content;
   margin-left: 20px;
   margin-right: 10px;
@@ -51,21 +73,21 @@ header{
 }
 #account-button:hover{
   cursor: pointer;
-  color: #ffffff;
+  color: var(--corlor_text);
 }
 .notification-list-acc {
-  color: #ffffff;
+  color: var(--corlor_text);
   display: none;
   font-size: 14px;
   position: absolute;
   top: 6%;
   right: 0;
   width: fit-content;
-  background-color:#323232;
+  background-color:var(--backround_sub);
   border: none;
   border-radius: 4px;
   padding: 10px;
-  box-shadow: -1px 2px 12px 1px #000000;
+  box-shadow: var(--box-shadow);
 
 }
 
@@ -78,7 +100,7 @@ header{
 .notification-list-acc button {
   margin-top: 20px;
   background: none;
-  color: #e94801;
+  color: var(--color_element);
   border: none;
   text-align: right;
   width: 100%;
@@ -91,24 +113,32 @@ cursor: pointer;
 
 /* ---------------------------CSS for sidebar---------------------------------- */
   .sidebar {
-    width: 250px;
-    background-color: #323232;
+    width: 370px;
+    background-color:var(--backround_sub);
     height: 100vh;
     position: fixed;
     top: 0;
-    left: -208px; /* ẩn thanh menu bên trái */
+    left: -325px; /* hide left menu bar */
     transition: left 0.3s ease;
-    box-shadow: 6px 2px 12px 1px #000000;
+    box-shadow: var(--box-shadow_sidebar);
   }
 
   .sidebar.open {
-    left: 0; /* hiển thị thanh menu bên trái */
+    left: 0; /* show left menu bar */
   }
 .menu{
-    color: #e94801;
+    color: var(--color_element);
   }
-
+  .menu::before{
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: "⟵";
+  background-color: none;
+}
   .sidebar ul {
+    font-size: 26px;
     list-style-type: none;
     padding: 0;
     margin-top: 50px;
@@ -118,16 +148,16 @@ cursor: pointer;
   .sidebar ul li {
      cursor: pointer;
     padding: 10px;
-    /* border-bottom: 1px solid #ccc; */
   }
   
   .sidebar ul li a {
+ 
     text-decoration: none;
-    color:  #ffffff;
+    color:  var(--corlor_text);
   }
 
   .sidebar ul li a:hover {
-    color:#e94801;
+    color:var(--color_element);
     font-weight: bold;
   }
 
@@ -143,19 +173,19 @@ cursor: pointer;
     font-size: 24px;
     cursor: pointer;
   }
-/* ---------------------------CSS for sidebar---------------------------------- */
-/*--------------------------CSS cho các tinh nang -------------------------------*/
+/* -------------------------CSS for sidebar---------------------------------- */
+/*--------------------------CSS for fucntion-------------------------------*/
 
   .box:hover{
-    box-shadow: 1px 0px 10px 6px #e94801;
+    box-shadow: var(--boxshadow_hover);
   }
   .box:active{
-    background-color: #e94801;
-    color: white;
+    background-color: var(--color_element);
+    color: var(--corlor_text_hover);
   }
   .active{
-    background-color: #e94801 !important;
-    color: white!important;
+    background-color: var(--color_element) !important;
+    color: var(--corlor_text_hover) !important;
   }
 
   .centerBox {
@@ -170,45 +200,47 @@ cursor: pointer;
   }
 
   #startButton {
-    font-size: larger;
-    width: 40%;
-    background-color: #252525;
+    font-size: 28px;
+    width: 50%;
+    font-weight: 500;
+    height: 10%;
+    background-color: var(--button_background);
     border-radius: 10px;
-    border: 1px solid #D0CECE;
+    border: var(--border_button);
     padding: 10px 20px;
-    color: #e94801;
+    color: var(--color_element);
     cursor: pointer;
     text-decoration: none;
   }
   #startButton:hover {
 
-    background-color: #e94801;
-    color: #000000;
+    background-color: var(--color_element);
+    color: var(--corlor_text_hover);
 
   }
 #home_container{
     width: auto;
     margin-left: 40px;
-    height: 90%;
+  height: 100%;
     display: flex;
 }
 #home_function{
     display: grid;
     gap: 20px;
-    flex-basis: 20%;
+    flex-basis: 25%;
     height: 100%;
     justify-content:center;
     align-items:center;
 }
 .box {
-  font-size: 20px;
+  font-size: 26px;
   font-weight: 600;
-  color:  #e94801;
-  border:2px solid #c2c2c2 ;
+  color: var(--color_element);
+  border:var(--border) ;
   border-radius: 10px;
-  width: 200px;
+  width: 280px;
   height: 110px;
-  background-color: #252525;
+  background-color: var(--button_background);
   margin-bottom: 10px;
   cursor: pointer;  
   display: flex;
@@ -218,18 +250,24 @@ cursor: pointer;
 
 }
 #home_view_function{
-    background-color: #252525;
+    background-color:var(--backround);
     flex-basis: 80%;
     height: 100%;
 }
 
 #viewbox{
-    color: #D0CECE;
+  background: var(--button_background);
+    color: var(--corlor_text);
     margin-inline-start: -230px;
-    width: 500px;
+    width: 600px;
     height: 600px;
     border-radius: 20px;
-    box-shadow: 1px 0px 20px 6px #e94801;
+    box-shadow: var(--boxshadow_popup);
+}
+#viewbox p{
+  height: 50%;
+  font-size: 30px;
+  padding: 0 30px;
 }
 #viewbox.a:hover{
 cursor: pointer;
@@ -241,22 +279,57 @@ p{
   align-items: center;
   font-size: 20px;
 }
+
+h1{
+  margin-top: 10%;
+  font-size: 50px;
+}
 h3{
-  border-top: 0.5px solid #ffffff;
-  color: #ffffff;
+  border-top: 0.5px solid var(--border_h);
+  color: var(--corlor_text);
   margin-left: 50px;
   font-size: 15px;
   font-weight: 1000;
   margin-top: 20px;
  }
+.disabled {
+  height: 30% !important;
+  display: none !important;
+  box-shadow: inset 13px -6px 12px 1px #000000;
+  border: none;
+}
+  /*--------------------------CSS for fucntion  -------------------------------*/
+  @media only screen and (max-width: 1100px) {
+    h1{
+      margin: 0;
+    }
+    #home_container{
+      display:grid;
+    }
+    #home_function{
+      display:flex;
+      flex-wrap: wrap;
+    }
+    #home_view_function{
+      width:auto;
+      justify-content: center;
+      align-items: center;
+    }
+    #viewbox {
 
-  /*--------------------------CSS cho các tinh nang -------------------------------*/
+      margin-inline-start: 0;
+      height: 400px;
 
-  .disabled {
-    height: 30% !important;
-    display: none !important;
-    box-shadow: inset 13px -6px 12px 1px #000000;
-    border: none;
-    
   }
-  
+  }
+
+  @media only screen and (max-width: 2560px) {
+    #home_container{
+      margin-left: 90px;
+    }
+ 
+
+
+
+  }
+ 

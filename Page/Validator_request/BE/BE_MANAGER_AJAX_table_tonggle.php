@@ -1,44 +1,36 @@
 <?php
+// CONTENT: CREATE TABLE MANAGER
+// INPUT: $request,$id_manage
+// OUTPUT: TABLE TABLE MANAGER 
 // Start the session
 session_start();
 ?>
+
 <?php
+// table main manager 
 $request = $_POST["request"]??"";
-$id_manager = $_COOKIE['ID'];
+$id_manager = $_SESSION['ID'];
 $link_file_json_manager = "../../../Data/UserData/".$id_manager."/".$request.".json";
-$link_file_json_add = "../../../Data/UserData/".$id_manager."/".$request."_add.json";
 
 
 $jsonString = file_get_contents($link_file_json_manager);
 $jsonData = json_decode($jsonString, true);
-//////////////json_add///////////////
 
-
-
-
-if (is_file($link_file_json_add) == 1 ){
-    $jsonString_add = file_get_contents($link_file_json_add);
-    $jsonData_add = json_decode($jsonString_add, true);
-}
-// echo "<pre>";
-// print_r($jsonData_add);
 //////post///////////
 $language_btn = $_POST["language_btn"]??"";
 
-// echo $link_file_json;
-// check cac ngon ngu da duoc tick dich
+// check the translations in json
 $arr_col=[];
 foreach ($jsonData['validation_request'] as $text=>$value1)
-{
-    foreach ($jsonData['validation_request'][$text]['language'] as $language=>$value2)
     {
-        if ($value2['content'] !== "0"&& $language!=="US_English")
-        {   
-            // echo $value2;
-            $arr_col[$language][$text]= $value2['content'];
-        }
+        foreach ($jsonData['validation_request'][$text]['language'] as $language=>$value2)
+            {
+                if ($value2['content'] !== "0"&& $language!=="US_English")
+                    {   
+                        $arr_col[$language][$text]= $value2['content'];
+                    }
+            }
     }
-}
 
 
 ?>
@@ -75,7 +67,13 @@ foreach ($jsonData['validation_request'] as $text=>$value1)
                                     $count_col=$count_col+1;
                                     echo "<td id='td_displaytype_".$count_row."_".$count_col."'>".$jsonData['validation_request'][$txtid]['display_type']."</td>";
                                     $count_col=$count_col+1;
-                                    echo "<td id='td_kayout_".$count_row."_".$count_col."'>".$jsonData['validation_request'][$txtid]['layout']."</td>";
+
+                                    $firstUnderscorePos = strpos($txtid, '_');
+                                    $secondUnderscorePos = strpos($txtid, '_', $firstUnderscorePos + 1);
+                                    $pic_name = substr($txtid, 0, $secondUnderscorePos);
+                                    $link_pic_layout = "../../../../Data/ProjectData/Layout_pic/" . $pic_name . ".PNG";
+                                    echo "<td id='td_layout_".$count_row."_".$count_col."'>"."<img id = 'layout_pic' height = '80px' src='".$link_pic_layout."'>"."</td>";
+                                
                                     $count_col=$count_col+1;
                                     echo "<td id='td_limitlenght_".$count_row."_".$count_col."'>".$jsonData['validation_request'][$txtid]['limit_lenght']."</td>";
                                     $count_col=$count_col+1;
@@ -90,13 +88,13 @@ foreach ($jsonData['validation_request'] as $text=>$value1)
                                                     <span class=" wendigo"  >
                                                     <label for="input_mail">Address Mail:</label>
                                                         <br>
-                                                            <input class="input1" type="text" id="'.$language.'_mail" name="input_mail" value="'.$jsonData_add[$language]["mail"].'" >
+                                                            <input class="input1" type="text" id="'.$language.'_mail" name="input_mail" value="'.$jsonData["mail"].'" >
                                                         <br>
                                                     </span>
                                                     <span class=" wendigo"  >
                                                     <label for="input_deadline">Deadline Request:</label>
                                                         <br>
-                                                            <input class="input1"  type="text" id="'.$language.'_deadline" name="input_deadline" value="'.$jsonData_add[$language]["deadline"].'" >
+                                                            <input class="input1" onchange="deadline_check(this.id)"  type="date" id="'.$language.'_deadline" name="input_deadline" value="'.$jsonData["deadline"].'" >
                                                         </span>
                                                 </form>
                                             </td>'; 
@@ -113,5 +111,26 @@ foreach ($jsonData['validation_request'] as $text=>$value1)
         </tbody>
     </table>
 
-  
-</html> 
+<script>
+    //Deadline day check 
+    function deadline_check(id){
+            var deadline_day = document.getElementById(id).value;
+            var now_date = Date.now();
+
+            //  Date from timestamp
+            const dateObj = new Date(now_date);
+
+            // get day,month,year 
+            const day = dateObj.getDate();
+            const month = dateObj.getMonth() + 1; 
+            const year = dateObj.getFullYear();
+
+            //"yyyy/mm/dd"
+            const formattedDate = `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
+            if(deadline_day<formattedDate){
+                alert("Please set dealine again ! (Deadline is before today )");
+                document.getElementById(id).value = "";
+                }
+    }
+</script>
+</html>

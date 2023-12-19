@@ -1,4 +1,4 @@
-
+// js for shift language buttons
 const slideshow = document.querySelector('.slideshow');
 const buttons = document.querySelectorAll('.button_tonggle');
 const buttonCount = buttons.length;
@@ -23,7 +23,7 @@ function previous() {
 }
 
 showButtons(currentIndex);
-/////////////////////////////////////////////////////////////////
+// js for shift language buttons
 
 
 

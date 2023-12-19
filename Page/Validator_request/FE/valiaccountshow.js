@@ -1,14 +1,11 @@
-  // Lấy thẻ <p> có id là "account_type"
+///////////////display buttons and cards by account type
   var accountType = document.getElementById("account_type");
-
-  // Lấy các button cần điều chỉnh hiển thị
   var valinewrequest= document.getElementById("btn_Validator_request_new_request");
   var valiSave2 = document.getElementById("btn_Validator_request_save2");
   var valiSave3 = document.getElementById("btn_Validator_request_save3");
   var valiSave4 = document.getElementById("btn_Validator_request_save4");
   var valiSave5 = document.getElementById("btn_Validator_request_save5");
   var valiback = document.getElementById("btn_Validator_request_back");
-  // var valiSetPassword = document.getElementById("btn_Validator_request_Set_Password");
   var valiSetappro = document.getElementById("btn_Validator_request_Set_Approval");
   var Confirmtranslation = document.getElementById("btn_Validator_request_Confirm_translation");
   var valiSend_Approval = document.getElementById("btn_Validator_request_Send_Approval");
@@ -26,20 +23,11 @@
   var containerbox3 = document.getElementById('containerbox3')
   var containerbox4 = document.getElementById('containerbox4')
   var containerbox5 = document.getElementById('containerbox5')
-  // var input1 = document.getElementById('input1')
-  // var input2 = document.getElementById('input2')
 
-
-
-
-  // Kiểm tra nếu account_type chứa chữ "Manager"
   if (accountType.textContent.includes("User")) {
-    // Hiển thị rejectButton và approvalButton
     valinewrequest.style.display = "flex";
     TranSave.style.display = "none";
     Confirmtranslation.style.display = "none";
-
-    // Ẩn limitLengthButton và resetButton
     valinewrequest.style.display = "block";
     valiSave.style.display = "none";
     valiSave2.style.display = "none"; 
@@ -86,7 +74,6 @@
     } else {
       mess_enter_address.style.display = "none";
       document.getElementById('btn_Validator_request_Send_Validator').disabled = false;
-      // document.getElementById('btn_Validator_request_Set_Password').classList.add('btn');
       document.getElementById('btn_Validator_request_Send_Validator').style.background = "#252525";
       document.getElementById('btn_Validator_request_Send_Validator').style.border = "1px solid #D0CECE ";
       document.getElementById('btn_Validator_request_Send_Validator').style.cursor = "pointer";
@@ -119,8 +106,7 @@
 
 
   } 
-
-
+///////////////display buttons and cards by account type
 
 
 
@@ -143,12 +129,9 @@
     });
 
   }
-  
-  // Gọi hàm setupButtonListeners để thiết lập lắng nghe sự kiện cho các nút
   setupButtonListeners();
-  
 
-
+//////////function to enable Send_Validator button after editing
 
 
 

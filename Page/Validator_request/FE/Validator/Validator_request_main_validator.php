@@ -1,9 +1,9 @@
 
-  <?php require "../../../template/header.php"; ?>
-  <link rel="stylesheet" href="../Validator_request.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<?php require "../../../template/header.php"; ?>
+<link rel="stylesheet" href="../Validator_request.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- -----------------content---------------------------- -->
 <div id="Validator_request_content">
         <h1>Validator request</h1>
@@ -20,18 +20,13 @@
 <p id="mess_validator_info_check_OK_NG">Please enter only NG and OK in the Result</p>
 
 <div id="Wraper_table_Validator_Request_validator" >                                     
-
      <?php 
-     try {
-      include "../../BE/BE_VALIDATOR_table_tonggle.php" ;
-     } catch (Exception $e){
-      echo 'Loading ... ';
-     }
+        try {
+          include "../../BE/BE_VALIDATOR_table_tonggle.php" ;
+        } catch (Exception $e){
+          echo 'Loading ... ';
+        }
      ?>
-
-
-
-
 </div>
           <div id="box_langue">
 
@@ -44,9 +39,7 @@
                   <button class="next-button" onclick="next()">    >  </button>
               </div>
   <div class="btn_back">
-    <button id="btn_back_to_home"  >
-      ← Back
-    </button>
+    <button id="btn_back_to_home">Back</button>
 
 </div>
 <!-- ------------------------------------------------------Set password-------------------------------- -->
@@ -58,7 +51,7 @@
                   <p  id="not_macth"  style="color: RED;"  >Create password and confirm password do not match</p>
           
                 <form id="form_Validator_Request_Set_password"  >
-                    <div   id="Validator_Request_form_set_password"   >
+                    <div  id="Validator_Request_form_set_password"   >
                             <span>
                               <label for="fname">Create password:</label>
                               <input   id="create_pass" type="text"  name="fname">
@@ -174,7 +167,6 @@
   </div>
 </div>
 <!-- ------------------------------------------------------Set deadline-------------------------------- -->
-
 
 </div>
 <script src="../Validator_request.js"></script>

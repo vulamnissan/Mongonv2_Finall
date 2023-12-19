@@ -1,24 +1,19 @@
 <?php
-    //======== Can truyen ===================
-    $id_user= $_COOKIE["ID"];
-    $db = new connect_DB("localhost","mongonv2","root","");
-    $qr= new Query("mongonv2");
+//CONFIGURE TABLE LIST REQUEST OF MANAGER
+$id_user= $_SESSION["ID"];
+$db = new connect_DB($_SESSION['db_host'], $_SESSION['db_dbname'], $_SESSION['db_user'], $_SESSION['db_pass']);
+$qr= new Query("mongonv2");
 
-    function get_user_data($qr,$db)
-    {
-        //=======================Lay data textid infor=================
-        $query= $qr->select_data("user");
-        $result=$db->get_data($query);
-        if (!$result)
+function get_user_data($qr, $db)
+{
+    //=======================get data user================
+    $result= $qr->select_data($db, "user");
+    if (!$result)
         {
-            die ('Câu truy vấn bị sai');
+            die ('The query is wrong');
         }
-        else
-        {
-    
-        }
-        $user_data=[];
-        while ($row = mysqli_fetch_assoc($result))
+    $user_data=[];
+    while ($row = mysqli_fetch_assoc($result))
         {
             $user_data[$row['mail']]=[];
             $user_data[$row['mail']]['id']=$row['id'];
@@ -26,82 +21,107 @@
             $user_data[$row['mail']]['type']=$row['type'];
             $user_data[$row['mail']]['password']=$row['password'];
         };
-        return $user_data;
+    return $user_data;
+}
+function customCompare($a, $b) {
+    $aNumber = (int)substr($a, 2);
+    $bNumber = (int)substr($b, 2);
+    return $aNumber - $bNumber;
+}
+$temp_user = get_user_data($qr, $db);
+$folderPath = '../../../../../Data/UserData/'.$id_user;
+// Get the list of files in the directory
+$fileList = scandir($folderPath);
+// Remove files "." and ".."
+$list_file_json=[];
+// Print a list of filenames
+foreach ($fileList as $file) 
+    {          
+        $pos=strpos($file, ".json");
+        $pos1=strpos($file, "DB"); 
+        if ($pos !== false && $pos1 !== false) // If it's a json file and name file contains "DB"
+            {
+                $name_file_json= str_replace(".json", "", $file);
+                $list_file_json[]=$name_file_json;
+                
+            }
     }
-    $temp_user = get_user_data($qr,$db);
-    //=======================================
-    $folderPath = '../../../../../Data/UserData/'.$id_user;
-    // Lấy danh sách tệp trong thư mục
-    $fileList = scandir($folderPath);
-    // Loại bỏ các tệp "." và ".."
-    $fileList = array_diff($fileList, array('.', '..'));
-    $list_file_json=[];
-    // In danh sách tên tệp
-    foreach ($fileList as $file) 
+
+$result= $qr->select_request_user($db, "request", $id_user);
+
+if (!$result)
+{
+    die ('Error select request');
+}
+else
+{
+// get infor in table request 
+$data_request=[];
+while ($row = mysqli_fetch_assoc($result))
+    { 
+        $data_request[$row['requestnumber']]=[];
+        $data_request[$row['requestnumber']]['user']=$row['user'];
+        $data_request[$row['requestnumber']]['status']=$row['status'];
+        $data_request[$row['requestnumber']]['requester']=$row['requester'];
+        $data_request[$row['requestnumber']]['dateissue']=$row['dateissue'];
+        $data_request[$row['requestnumber']]['deadline']=$row['deadline'];
+    }
+}
+
+usort($list_file_json, 'customCompare');
+$list_file_json_sort = [];
+$j = 0;
+$result= $qr->select_requestnumber($db, "request", $id_user);
+if ($result->num_rows > 0){
+    while ($row = mysqli_fetch_assoc($result))
     {
-        
-        $pos=strpos($file,".json");
-        $pos1=strpos($file,"DB"); 
-        if ($pos !== false && $pos1 !== false) // neu dung la file json  thi add vao mang
-        {
-            $name_file_json= str_replace(".json", "", $file);
-            // echo $name_file_json;
-            $list_file_json[]=$name_file_json;
-        }
-        // echo $file . "<br>";
+        $j += 1;
+        $list_file_json_sort[$j-1] = $row['requestnumber'];
+
     }
-
-    for($i=0;$i < count($list_file_json);$i++){
-        // echo $list_file_json[$i];
-        $link_file = "../../../../../Data/UserData/".$id_user."/".$list_file_json[$i].".json";
-        $jsonString = file_get_contents($link_file);
-        $data = json_decode($jsonString,true);
-        foreach($data as $keys => $values){
-            foreach($temp_user as $key => $value){
-                if ($temp_user[$key]['name']=== $keys){
-                    // echo "son";
-                    $id = $temp_user[$key]['id'];
-                    $rqt = $keys;
-                    break;
-                }
-            }
-
+}
+ 
+for ($i=0;$i<count($list_file_json);$i++)
+    {
+        if(in_array($list_file_json[$i], $list_file_json_sort)){
+            //nothing
         }
-        //===
-                $query= $qr->select_request_user("request",$id);
-                $result=$db->get_data($query);
-                if (!$result)
+        else{
+            $list_file_json_sort[count($list_file_json_sort)] = $list_file_json[$i];
+        }
+    }
+ 
+for($i=0;$i < count($list_file_json_sort);$i++)
+    {   
+        $link_file = "../../../../../Data/UserData/".$id_user."/".$list_file_json_sort[$i].".json";
+        $jsonString = file_get_contents($link_file);
+        $data = json_decode($jsonString, true);
+
+        foreach($data as $keys => $values)
+        {
+            foreach($temp_user as $key => $value)
                 {
-                    die ('Error select request');
+                    if ($temp_user[$key]['name']=== $keys){
+                        $id = $temp_user[$key]['id'];
+                        $rqt = $keys;
+                        break;
+                    }
                 }
-                else
+                
+            foreach($data_request as $key => $value)
                 {
-                // Lay thong tin bang request 
-                $data_reqest=[];
-                // print_r($result);
-                while ($row = mysqli_fetch_assoc($result))
-                { 
-                    $data_reqest[$row['requestnumber']]=[];
-                    $data_reqest[$row['requestnumber']]['user']=$row['user'];
-                    $data_reqest[$row['requestnumber']]['status']=$row['status'];
-                    $data_reqest[$row['requestnumber']]['requester']=$row['requester'];
-                    $data_reqest[$row['requestnumber']]['dateissue']=$row['dateissue'];
-                    $data_reqest[$row['requestnumber']]['deadline']=$row['deadline'];
-                };
-            }
-                    foreach($data_reqest as $key => $value){
-                        // echo $key;
-                        if($key === $list_file_json[$i]){
+                    if($key === $list_file_json_sort[$i])
+                        {
                             $no=$i+1;
                             echo "<tr>";
                             echo "<td>".$no."</td>";
-                            echo "<td id=\"".$no."\">"."<a href = '../Information_about_TEXT_ID.php?rq=".$list_file_json[$i]."&id_user=".$id."&rqter=".$rqt."' target = '_blank'>".$list_file_json[$i]."</a></td>";
-                            echo "<td>".$data_reqest[$key]['status']."</td>";
-                            echo "<td>".$data_reqest[$key]['requester']."</td>";
-                            echo "<td>".$data_reqest[$key]['dateissue']."</td>";
+                            echo "<td id=\"".$no."\">"."<a href = '../Information_about_TEXT_ID.php?flag=1&rq=".$list_file_json_sort[$i]."&id_user=".$id."&id_M=".$id_user."&rqter=".$rqt."' target = '_blank'>".$list_file_json_sort[$i]."</a></td>";
+                            echo "<td>".$data_request[$key]['status']."</td>";
+                            echo "<td>".$data_request[$key]['requester']."</td>";
+                            echo "<td>".$data_request[$key]['dateissue']."</td>";
                             echo "</tr>";
                         }
-                    }
-        //==
-    }
+                }
+        }
+    }                                           
 ?>

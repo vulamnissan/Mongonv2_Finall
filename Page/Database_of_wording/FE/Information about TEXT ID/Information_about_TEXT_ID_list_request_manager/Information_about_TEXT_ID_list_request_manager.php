@@ -2,26 +2,17 @@
 <?php
 $pageTitle5 = "Information about TEXT ID" ;
 ?>
-<style>
-a{
-  color: white;
-  text-decoration: none;
-}
 
-</style>
 <?php require "../../../../template/header.php"; ?>
 
     <link rel="stylesheet" href="../Information_about_TEXT_ID_list_request_manager/Information_about_TEXT_ID_list_request_manager.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
-
-
 <!-- -----------------content---------------------------- -->
 <div id="Information_about_TEXT_ID_content">
         <h1>Database of wording </h1>
         <p id="mess_tran2">The below translation request has been issued by Nissan Design. Please confirm and fill the translation text in the yellow box</p>
-
 
 <div id="Wraper_table_Information_about_TEXT_ID_manager"  >
   <table id="myTable_Information_about_TEXT_ID_info_manager">
@@ -32,26 +23,18 @@ a{
         <th >Status</th>
         <th >Requester</th>
         <th >Date Issue</th>
-
     </thead>
     <tbody>
-
-
     <?php 
       include "../../../BE/my_sql.php";
       include "../../../BE/table_request_M.php";
     ?>
- 
     </tbody>
   </table>
-
-
 </div>
 
 <div class="btn_back">
-    <button id="btn_back_to_home"  >
-      ← Back
-    </button>
+    <button id="btn_back_to_home"  >Back</button>
 
 </div>
 <div  id="Information_about_TEXT_ID_view"   >
@@ -82,10 +65,6 @@ a{
 </div>
 <!-- -----------------content---------------------------- -->
 <script src="../Information_about_TEXT_ID_list_request_manager/Information_about_TEXT_ID_list_request_manager.js"></script>
-
-
-
-
 
 <?php require "../../../../template/footer.php"; ?>
 

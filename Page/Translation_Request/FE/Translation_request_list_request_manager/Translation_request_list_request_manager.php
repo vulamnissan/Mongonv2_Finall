@@ -13,7 +13,6 @@
         <h1>Translation request</h1>
         <p id="mess_tran2">The below translation request has been issued by Nissan Design. Please confirm and fill the translation text in the yellow box</p>
 
-
 <div id="Wraper_table_Translation_request_manager"  >
   <table id="myTable_Translation_request_info_manager">
     <thead >
@@ -23,42 +22,16 @@
         <th >Status</th>
         <th >Requester</th>
         <th >Date Issue</th>
-
     </thead>
     <tbody>
-      <!-- <tr>
-        <td>1</td>
-        <td class="list_request">ffff</button></td>
-        <td>1234567890</td>
-        <td>1</td>
-        <td>Nguyễn Văn A</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Nguyễn Văn A</td>
-        <td>1234567890</td>
-        <td>1</td>
-        <td>Nguyễn Văn A</td>
-
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Nguyễn Văn A</td>
-        <td>1234567890</td>
-        <td>1</td>
-        <td>Nguyễn Văn A</td>
-      </tr> -->
       <?php include "../../BE/List_request_manager.php" ?>
     </tbody>
   </table>
-
-
 </div>
 
+
 <div class="btn_back">
-    <button id="btn_back_to_home"  >
-      ← Back
-    </button>
+    <button id="btn_back_to_home">Back</button>
 </div>
 
 <div  id="Translation_request_view"   >
@@ -70,9 +43,8 @@
                     <div   id="Translation_request_view_form"   >
                             <span>
                               <label for="fname">Password:</label>
-                              <input   id="Translation_request_pass" type="text"  name="fname">
+                              <input   id="Translation_request_pass" type="password"  name="fname">
                             </span>
-
                     </div>
 
                     <div class="Translation_request_view_btn_ok_cancle">
@@ -90,7 +62,5 @@
 <!-- -----------------content---------------------------- -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="../Translation_request_list_request_manager/Translation_request_list_request_manager.js"></script>
-
-
 
 <?php require "../../../template/footer.php"; ?>

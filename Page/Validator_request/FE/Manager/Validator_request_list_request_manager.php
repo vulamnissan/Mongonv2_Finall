@@ -1,3 +1,8 @@
+<?php
+$pageTitle3 = "Validator request";
+?>
+<!--// CONTENT: FE_list_request_manager
+// OUTPUT: FE_list_request_manager-->
 <?php require "../../../template/header.php"; ?>
   <link rel="stylesheet" href="../Validator_request.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,7 +23,7 @@
         <th >Request Number</th>
         <th >Status</th>
         <th >Requester</th>
-        <th >Date Issue</th>
+        <th >Deadline</th>
 
     </thead>
     <tbody>
@@ -30,9 +35,7 @@
 </div>
 
 <div class="btn_back">
-    <button id="btn_back_to_home"  >
-      ← Back
-    </button>
+    <button id="btn_back_to_home">Back</button>
 
 </div>
 <div  id="Validator_Request_view"   >
@@ -43,7 +46,7 @@
                     <div   id="Validator_Request_view_form"   >
                             <span>
                               <label for="fname">Password:</label>
-                              <input   id="vali_request_pass" type="text"  name="fname">
+                              <input   id="vali_request_pass" type="password"  name="fname">
                             </span>
 
                     </div>

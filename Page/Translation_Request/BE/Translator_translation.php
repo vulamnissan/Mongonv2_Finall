@@ -1,40 +1,37 @@
 <?php
-    // ======================== can truyen vao ==========================
+    // CONTEN: CREATE TABLE TRANSLATION OF TRANSLATOR
+    // INPUT: $id(TRANSLATOR), $request
+    // OYTPUT: TABLE TRANSLATION OF TRANSLATOR
+
+    //1. INPUT HANDLE 
     $id=($_GET["id_user"]??"");
     $request=($_GET["rq"]??"");
     $path = str_replace(" ","",'../../../Data/UserData/'.$id.'/'.$request.'.json');
-    //===================================================================
-
     $jsonString = file_get_contents($path);
     $jsonData = json_decode($jsonString, true);
-    // echo "<pre>";
-    // print_r($jsonData);
 
-    // check cac ngon ngu da duoc tick dich
+    //2. CHECK REQUEST TRANSLATED
     $arr_col=[];
     $arr_col['US_English']="1";
     foreach ($jsonData['translation_request'] as $text=>$value1)
-    {
-        foreach ($jsonData['translation_request'][$text]['language'] as $language=>$value2)
         {
-            if ($value2['content'] !== "0")
-            {   
-                // echo $value2;
-                if(array_key_exists($language, $arr_col))
+            foreach ($jsonData['translation_request'][$text]['language'] as $language=>$value2)
                 {
-
+                    if ($value2['content'] !== "0")
+                        {   
+                            if(array_key_exists($language, $arr_col))
+                                {
+                                    //nothing to do 
+                                }
+                            else
+                                {
+                                    $arr_col[$language]="1";
+                                }
+                        }
                 }
-                else
-                {
-                    $arr_col[$language]="1";
-                }
-            }
         }
-    }
-    // echo "<pre>";
-    // print_r($arr_col);
 ?>
-
+<!-- 3. OUTPUT TABLE TRANSLATION -->
 <html>
     <table id="myTable_Translation_Request_info">
         <thead>
@@ -48,17 +45,17 @@
             <?php
                 $count_col=7;
                 foreach ($arr_col as $key=>$value)
-                {
-                    if ($key !== "US_English"){
-                        $count_col=$count_col+1;
-                        echo "<th class = 'language_trans' id= 'th_language_1_".$count_col."' >".$key."</th>";
-                    }
-                    else{
-                        $count_col=$count_col+1;
-                        echo "<th id= 'th_language_1_".$count_col."' >".$key."</th>";
-                    }
+                    {
+                        if ($key !== "US_English"){
+                            $count_col=$count_col+1;
+                            echo "<th class = 'language_trans' id= 'th_language_1_".$count_col."' >".$key."</th>";
+                        }
+                        else{
+                            $count_col=$count_col+1;
+                            echo "<th id= 'th_language_1_".$count_col."' >".$key."</th>";
+                        }
 
-                }
+                    }
             ?>
         </thead>
         <tbody>
@@ -67,8 +64,6 @@
                     
                     foreach ($jsonData['translation_request'] as $text=>$value1)
                     {
-                        // echo "<pre>";
-                        // print_r($text);
                         $count_col=1;
                         echo "<tr>";
                         echo "<td id='td_request_".$count_row."_".$count_col."'>".$request."</td>";
@@ -79,7 +74,13 @@
                         $count_col=$count_col+1;
                         echo "<td id='td_displaytype_".$count_row."_".$count_col."'>".$value1['display_type']."</td>";
                         $count_col=$count_col+1;
-                        echo "<td id='td_kayout_".$count_row."_".$count_col."'>".$value1['layout']."</td>";
+
+                        $firstUnderscorePos = strpos($text, '_');
+                        $secondUnderscorePos = strpos($text, '_', $firstUnderscorePos + 1);
+                        $pic_name = substr($text, 0, $secondUnderscorePos);
+                        $link_pic_layout = "../../../Data/ProjectData/Layout_pic/" . $pic_name . ".PNG";
+                        echo "<td id='td_layout_".$count_row."_".$count_col."'>"."<img id = 'layout_pic' height = '60px' src='".$link_pic_layout."'>"."</td>";
+                        
                         $count_col=$count_col+1;
                         echo "<td id='td_limitlenght_".$count_row."_".$count_col."'>".$value1['limit_lenght']."</td>";
                         $count_col=$count_col+1;
@@ -90,31 +91,29 @@
                         foreach ($arr_col as $key=>$value)
                         {
                             if ($key==="US_English")
-                            {
-
-                            }
-                            else
-                            {
-                                $count_col=$count_col+1;
-                                // echo ($value1['language'][$key]);
-                                if ($value1['language'][$key]['content'] !== "0")
                                 {
-                                    if ($value1['language'][$key]['content'] === "1")
-                                    {
-                                        echo "<td id='td_language_".$count_row."_".$count_col."' class='text_trans' contenteditable=\"true\" style='color:white'> </td>";
-                                    }
-                                    else
-                                    {
-                                        echo "<td id='td_language_".$count_row."_".$count_col."' class='text_trans' contenteditable=\"true\" style='color:white'>".$value1['language'][$key]['content']." </td>";
-                                        
-                                    }
+                                    //nothing to do 
                                 }
-                                else
+                            else
                                 {
-                                        echo "<td id='td_language_".$count_row."_".$count_col."' ></td>";
-                                    }
-                                        
-                            }
+                                    $count_col=$count_col+1;
+                                    if (trim($value1['language'][$key]['content']) !== "0" && trim($value1['language'][$key]['content']) !== "")
+                                        {
+
+                                            if ($value1['language'][$key]['content'] === "1")
+                                                {
+                                                    echo "<td id='td_language_".$count_row."_".$count_col."' class='text_trans blank' contenteditable=\"true\" > </td>";
+                                                }
+                                            else
+                                                {
+                                                    echo "<td id='td_language_".$count_row."_".$count_col."' class='text_trans blank' contenteditable=\"true\"> ".$value1['language'][$key]['content']." </td>";
+                                                }
+                                            }
+                                    else
+                                        {
+                                            echo "<td id='td_language_".$count_row."_".$count_col."'class='gray'></td>";
+                                        }
+                                }
                         }
                         echo "</tr>";
                         $count_row=$count_row+1;
@@ -122,14 +121,4 @@
                ?>
         </tbody>
     </table>
-
-    <!-- <style>
-    td,th{
-        border:2px solid black;
-    }
-    .blank{
-        background-color: yellow ;
-    }
-    </style> -->
-
 </html>

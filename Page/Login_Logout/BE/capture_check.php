@@ -1,12 +1,17 @@
 <?php
-session_start();
 $capture = $_POST['capture_code'];
 
-if ($capture == $_SESSION['capture'.$_COOKIE['ID']] ){
-    echo 1;
-}
+
+if ($capture == $_SESSION['capture'.$_SESSION['ID']] )
+    {
+        echo 1;
+    }
 else
-{
-    echo 0;
-}
+    {
+        echo 0;
+    }
+
+
+
+
 ?>

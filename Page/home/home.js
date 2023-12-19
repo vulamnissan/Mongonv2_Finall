@@ -19,12 +19,12 @@ document.addEventListener("DOMContentLoaded", function() {
 function changeContent(index, url) {
   var titles = ["Spec tender File Export", "Database of wording", "Manage application", "Translation request", "Validator request", "Vehicle manage"];
   var descriptions = [
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi laboriosam at voluptas",
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi laboriosam at voluptas",
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi laboriosam at voluptas",
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi laboriosam at voluptas",
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi laboriosam at voluptas",
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi laboriosam at voluptas"
+    "Enter title here !",
+    "Enter title here !",
+    "Enter title here !",
+    "Enter title here !",
+    "Enter title here !",
+    "Enter title here !"
   ];
 
   var boxes = document.getElementsByClassName("box");
@@ -72,23 +72,33 @@ function goToPage() {
 
 // -----------------------------hidden function that shows notifications and accounts------------- 
 
-
-
-
 var iconButton = document.getElementById("account-button");
-
-iconButton.addEventListener("click", function() {
-
 var notificationList_acc = document.getElementById("notification-list-acc");
+var isDropdownOpen = false;
 
-if (notificationList_acc.style.display === "" ||notificationList_acc.style.display === "none") {
-  notificationList_acc.style.display = "grid";
+iconButton.addEventListener("click", function(event) {
+  event.stopPropagation();
 
-  
-} else {
-  notificationList_acc.style.display = "none";
-}
+  if (!isDropdownOpen) {
+    notificationList_acc.style.display = "grid";
+    isDropdownOpen = true;
+  } else {
+    notificationList_acc.style.display = "none";
+    isDropdownOpen = false;
+  }
 });
+
+// Xử lý sự kiện click trên cả trang
+document.addEventListener("click", function(event) {
+  var targetElement = event.target;
+  var isClickedInside = notificationList_acc.contains(targetElement) || iconButton.contains(targetElement);
+
+  if (!isClickedInside) {
+    notificationList_acc.style.display = "none";
+    isDropdownOpen = false;
+  }
+});
+
 // -----------------------------hidden function that shows notifications and accounts------------- 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -98,96 +108,48 @@ if (notificationList_acc.style.display === "" ||notificationList_acc.style.displ
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+var accountType = document.getElementById('account_type').textContent.trim();
+var homeFunction = document.getElementById('home_function');
+var boxes = homeFunction.getElementsByClassName('box');
 
 
-// Lấy tham chiếu đến các thẻ div trong thẻ có id home_function
-var divs = document.querySelectorAll('#home_function > div.box');
 
-// Lấy tham chiếu đến thẻ p có id account_type
-var accountType = document.getElementById('account_type');
 
-// Kiểm tra nội dung của thẻ p account_type
-if (accountType.textContent === 'User') {
-  // Với User, vô hiệu hóa click cho các thẻ div trừ Database_of_wording và Validator_request
-  for (var i = 0; i < divs.length; i++) {
-    if (divs[i].id !== 'Database_of_wording' && divs[i].id !== 'Spec_tender_File_Export' && divs[i].id !== 'Translation_request' && divs[i].id !== 'Validator_request' && divs[i].id !== 'Vehicle_manage') {
-      divs[i].style.pointerEvents = 'none';
-      divs[i].classList.add('disabled'); // Thêm lớp .disabled
-      divs[i].style.color = '#444444';   
-    }
+ if (accountType === 'translator') {
+    // Display the Translation_request div tag to the translator
+    document.getElementById('Spec_tender_File_Export').style.pointerEvents = "none";
+    document.getElementById('Database_of_wording').style.pointerEvents = "none";
+    document.getElementById('Validator_request').style.pointerEvents = "none";
+    document.getElementById('Manage_application').style.pointerEvents = "none";
+    document.getElementById('Vehicle_manage').style.pointerEvents = "none";
+    document.getElementById('Spec_tender_File_Export').style.background = "var(--backround_sub)";
+    document.getElementById('Database_of_wording').style.background = "var(--backround_sub)";
+    document.getElementById('Validator_request').style.background = "var(--backround_sub)";
+    document.getElementById('Manage_application').style.background = "var(--backround_sub)";
+    document.getElementById('Vehicle_manage').style.background = "var(--backround_sub)";
+    document.getElementById('li_manager').style.display = 'none';
+    document.getElementById('li_spec').style.display = 'none';
+    document.getElementById('li_data').style.display = 'none';
+    document.getElementById('li_vali').style.display = 'none';
   }
-} 
-else if (accountType.textContent === 'Manager') {
-  // Với Manager, bỏ vô hiệu hóa click cho tất cả các thẻ div
-  for (var i = 0; i < divs.length; i++) {
-    divs[i].style.pointerEvents = 'auto';
-    divs[i].classList.remove('disabled'); // Xóa lớp .disabled (nếu có)
+else if (accountType === 'validator') {
+    // Show validator_request div tag
+    document.getElementById('Spec_tender_File_Export').style.pointerEvents = "none";
+    document.getElementById('Translation_request').style.pointerEvents = "none";
+    document.getElementById('Database_of_wording').style.pointerEvents = "none";
+    document.getElementById('Manage_application').style.pointerEvents = "none";
+    document.getElementById('Vehicle_manage').style.pointerEvents = "none";
+    document.getElementById('Spec_tender_File_Export').style.background = "var(--backround_sub)";
+    document.getElementById('Translation_request').style.background = "var(--backround_sub)";
+    document.getElementById('Database_of_wording').style.background = "var(--backround_sub)";
+    document.getElementById('Manage_application').style.background = "var(--backround_sub)";
+    document.getElementById('Vehicle_manage').style.background = "var(--backround_sub)";
+    document.getElementById('li_manager').style.display = 'none';
+    document.getElementById('li_spec').style.display = 'none';
+    document.getElementById('li_data').style.display = 'none';
+    document.getElementById('li_tran').style.display = 'none';
+
   }
-} 
-// else if (accountType.textContent === 'Translator') {
-//   // Với abc, chỉ cho phép click vào thẻ div có id Vehicle_manage
-//   for (var i = 0; i < divs.length; i++) {
-//     if (divs[i].id !== 'Translation_request') {
-//       divs[i].style.pointerEvents = 'none';
-//       divs[i].classList.add('disabled'); // Thêm lớp .disabled
-//       divs[i].style.color = '#444444';  
-//     }
-//   }
-// }
-// else if (accountType.textContent === 'Validator') {
-//   // Với abc, chỉ cho phép click vào thẻ div có id Vehicle_manage
-//   for (var i = 0; i < divs.length; i++) {
-//     if (divs[i].id !== 'Validator_request') {
-//       divs[i].style.pointerEvents = 'none';
-//       divs[i].classList.add('disabled'); // Thêm lớp .disabled
-//       divs[i].style.color = '#444444';  
-//     }
-//   }
-// }
-if (accountType.textContent === 'Validator') {
-  var home_function = document.getElementById('home_function');
-  var home_container = document.getElementById('home_container');
-  var viewbox = document.getElementById('viewbox');
-  // Thay đổi nội dung của thẻ div có id viewbox
-  var viewbox = document.getElementById('viewbox');
-  var validatorRequestDiv = document.getElementById('Validator_request');
-  var validatorRequestTitle = validatorRequestDiv.innerText;
-  var validatorRequestDescription = 'Mày là Validator';
-
-  var titleElement = viewbox.querySelector('h1#title');
-  var descriptionElement = viewbox.querySelector('p#description');
-  var startButton = viewbox.querySelector('button#startButton');
-
-  titleElement.innerText = validatorRequestTitle;
-  descriptionElement.innerText = validatorRequestDescription;
-  startButton.setAttribute('onclick', "window.location.href = 'ffff.html'");
-  home_container.style.justifyContent = 'center';
-  viewbox.style.marginInlineStart = '0';
-  home_function.style.display = 'none';
-
-}
-if (accountType.textContent === 'Translator') {
-  var home_function = document.getElementById('home_function');
-  var home_container = document.getElementById('home_container');
-  var viewbox = document.getElementById('viewbox');
-  // Thay đổi nội dung của thẻ div có id viewbox
-  var viewbox = document.getElementById('viewbox');
-  var validatorRequestDiv = document.getElementById('Translation_request');
-  var validatorRequestTitle = validatorRequestDiv.innerText;
-  var validatorRequestDescription = 'Mày là translator';
-
-  var titleElement = viewbox.querySelector('h1#title');
-  var descriptionElement = viewbox.querySelector('p#description');
-  var startButton = viewbox.querySelector('button#startButton');
-
-  titleElement.innerText = validatorRequestTitle;
-  descriptionElement.innerText = validatorRequestDescription;
-  startButton.setAttribute('onclick', "window.location.href = 'ffgggff.html'");
-  home_container.style.justifyContent = 'center';
-  viewbox.style.marginInlineStart = '0';
-  home_function.style.display = 'none';
-
-}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

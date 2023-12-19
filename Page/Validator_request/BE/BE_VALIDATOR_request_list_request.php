@@ -1,21 +1,20 @@
 
 <?php
     include "MySql.php";
-    $db = new connect_DB("localhost","mongonv2","root","");
+    $db = new connect_DB($_SESSION['db_host'], $_SESSION['db_dbname'], $_SESSION['db_user'], $_SESSION['db_pass']);
     $qr= new Query("mongonv2");
     //=====load table translation request=====
-    function load_data_request($db,$qr)
+    function load_data_request($db, $qr)
     {
-        $query= $qr->select_request_user("request",$_COOKIE['ID']);
-        $result=$db->get_data($query);
+        $result= $qr->select_request_user($db, "request", $_SESSION['ID']);
         if (!$result)
-        {
-            die ('InCorrect');
-        }
+            {
+                die ('InCorrect');
+            }
         else
-        {
-            return $result;
-        }
+            {
+                return $result;
+            }
     } 
 ?>
 <html> 
@@ -30,7 +29,7 @@
         </thead>
         <tbody>
             <?php
-                $data=load_data_request($db,$qr);
+                $data=load_data_request($db, $qr);
                 $count_row=0;     
                 $count_col=0; 
                 while ($row = mysqli_fetch_assoc($data))
@@ -41,10 +40,9 @@
             
                     foreach ($row as $key=>$value)
                     {
-                        //==============Kiem tra neu ten cot co "_text" thi la cot in4 language============= 
-                        if($key!=="user" and strpos($row['requestnumber'],"VL") !== false ){
+                        if($key!=="user" and strpos($row['requestnumber'], "VL") !== false ){
                             if ($key == 'requestnumber'){
-                                echo "<td id ='test".$count_row."_".$count_col."' class = 'list_request'>".$value."</td>";
+                                echo "<td id ='test".$count_row."_".$count_col."' class = 'list_request' style = 'text-decoration:underline ;cursor:pointer'>".$value."</td>";
                             }
                             else{
                                 echo "<td id ='test".$count_row."_".$count_col."'>".$value."</td>";
@@ -58,4 +56,5 @@
             
         </tbody>
     </table>
+
 </html>

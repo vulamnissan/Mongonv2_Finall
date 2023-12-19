@@ -1,23 +1,17 @@
-<?php
-session_start();
-?>
-<?php
 
+<?php
+// CONTENT: Reject mail
+// INPUT: link_file_json_manager
+// OUTPUT: save file josn_add 
 
 $request = $_POST["request"]??"";
-$id_manager = $_COOKIE['ID'];
+$id_manager = $_SESSION['ID'];
 $link_file_json_manager = "../../../Data/UserData/".$id_manager."/".$request.".json";
     $jsonString = file_get_contents($link_file_json_manager);
     $jsonData = json_decode($jsonString, true);
 
-    // $id=($_GET["id"]??"");
-    // $request=($_GET["rq"]??"");
-    // $path = str_replace(" ","",'../../../Data/UserData/'.$id.'/'.$request.'.json');
+    // =========================send mail======================
 
-    // =========================Gui mail======================
-    // $jsonString = file_get_contents($path);
-    // $jsonData = json_decode($jsonString, true);
-    
     $mgr_name=$jsonData["mgr"]['name'];
     $mgr_sect=$jsonData['mgr']['sect'];
     $mgr_mail=$jsonData['mgr']['mail'];
@@ -28,46 +22,32 @@ $link_file_json_manager = "../../../Data/UserData/".$id_manager."/".$request.".j
     $creator_company=$jsonData['creator']['company'];
     $creator_mail=$jsonData['creator']['mail'];
 
-    // $pw=$jsonData['password'];
-
-    // $time=$jsonData['date'];
-
     // mail to manager
-    $subject = "Reject Translation Request ".$request;
-    $body = "To: ".$creator_name. "
-            \n
-            \n The below translation request has been sent to you, so please check it!
-            \n Request Number: ".$request."
-            \n
-            \n Receiver Engineering Contact Information:
-            \n==================================================
-            \n Company Name: ".$mgr_company." 
-            \n User Name: ".$mgr_name."
-            \n Department Code: ".$mgr_sect."
-            \n
-            \n Sender Engineering Contact Information:
-            \n==================================================
-            \n Company Name: ".$creator_company." 
-            \n User Name: ".$creator_name."
-            \n Department Code: ".$creator_sect."";
+    // 2. CREATE AND SEND MAIL
+    require "../../send_mail.php";
+    $mail_sender = "email";
+    $name_receiver = $_SESSION['name'];
+    $mail_receiver = "email";
 
-    // $attachmentPath = "test123.json";
+    $subject_request = "Reject for additional information :".$request;
+    $htmlBody_request = "<h2>To: ".$creator_name. "</h2>"
+                                    ."<br>"
+                                    ."<h3>The below request for additional information can't approved, so please check the contents again.</h3>"
+                                    ."Request Number: ".$request.""
+                                    ."<p>Don't return to the sender of this mail.</p>"  
+                                    ."</br>"; 
 
-    $emailDraft = "mailto:?subject=" . $string = str_replace("+", " ", urlencode($subject)) . "&body=" . $string1 = str_replace("+", " ", urlencode($body)) . "&to=" . $creator_mail;
-
-    // Open the email draft in Outlook
-    $command = 'open "' . $emailDraft . '"';
-    shell_exec($command);
-    // echo $link_file_json_manager;
-    // =========================Xoa file json=====================
+    //2.1.2 SEND MAIL REQUEST TO MANAGER
+    Send_Mail($subject_request,$htmlBody_request,$mail_sender,$mail_receiver);  
+    // =========================delete file json=====================
     $status=unlink($link_file_json_manager);
-    // =========================Xoa file database=====================
+    // =========================delete file database=====================
     if ($status)
-    {
-        echo "Successfully reject request";
-    }
+        {
+            echo "Successfully reject request";
+        }
     else
-    {
-        echo "Error when rejecting";
-    }
+        {
+            echo "Error when rejecting";
+        }
 ?>

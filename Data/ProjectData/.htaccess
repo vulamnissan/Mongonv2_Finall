@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule \.sql$ /mongonv2_official/Page/Login_Logout/login.php [R=302,L]

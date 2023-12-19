@@ -1,57 +1,55 @@
+
+
 <?php
+// CONTENT: CREATE TABLE USER
+// INPUT: $request,$id_manage
+// OUTPUT: CREATE TABLE USER
 // Start the session
-session_start();
 ?>
+
 <?php
+// table main user
 $flag= $_POST['flag'];
+//////post///////////
+$language_btn = $_POST["language_btn"]??"";
 
 if($flag === "1")
-{
-    $request = $_POST['rq'];
-    $link_file_json= "../../../Data/UserData/". $_COOKIE['ID'] ."/".$request .".json";
-    $link_file_json_add= "../../../Data/UserData/". $_COOKIE['ID'] ."/". $_POST['rq']."_add.json";
-}
+    {
+        $request = $_POST['rq'];
+        $link_file_json= "../../../Data/UserData/". $_SESSION['ID'] ."/".$request .".json";
+        $link_file_json_add= "../../../Data/UserData/". $_SESSION['ID'] ."/". $_POST['rq']."_".$language_btn.".json";
+    }
 else
-{
-    $request = $_SESSION['request'];
-    $link_file_json = $_SESSION['link_file_json'];
-    $link_file_json_add = "../../../Data/UserData/". $_COOKIE['ID'] ."/". $request."_add.json";
-}
+    {
+        $request = $_SESSION['request'];
+        $link_file_json = $_SESSION['link_file_json'];
+        $link_file_json_add = "../../../Data/UserData/". $_SESSION['ID'] ."/". $request."_".$language_btn.".json";
+    }
 
-// echo $link_file_json;
 
 $jsonString = file_get_contents($link_file_json);
 $jsonData = json_decode($jsonString, true);
 //////////////json_add///////////////
 
+if (is_file($link_file_json_add) == 1 )
+    {
+        $jsonString_add = file_get_contents($link_file_json_add);
+        $jsonData_add = json_decode($jsonString_add, true);
+    }
 
-if (is_file($link_file_json_add) == 1 ){
-    $jsonString_add = file_get_contents($link_file_json_add);
-    $jsonData_add = json_decode($jsonString_add, true);
-}
-// echo "<pre>";
-// print_r($jsonData_add);
-//////post///////////
-$language_btn = $_POST["language_btn"]??"";
-
-// echo $link_file_json;
-// check cac ngon ngu da duoc tick dich
 $arr_col=[];
 foreach ($jsonData['validation_request'] as $text=>$value1)
-{
-    foreach ($jsonData['validation_request'][$text]['language'] as $language=>$value2)
     {
-        if ($value2['content'] !== "0"&& $language!=="US_English")
-        {   
-            // echo $value2;
-            $arr_col[$language][$text]= $value2['content'];
-        }
+        foreach ($jsonData['validation_request'][$text]['language'] as $language=>$value2)
+            {
+                if ($value2['content'] !== "0"&& $language!=="US_English")
+                    {   
+                        $arr_col[$language][$text]= $value2['content'];
+                    }
+            }
     }
-}
-
 
 ?>
-
 <html>
     <table id="myTable_Validator_Request_user" style= "border-collapse:collapse;" border =1px;>
         <thead>
@@ -76,41 +74,47 @@ foreach ($jsonData['validation_request'] as $text=>$value1)
                             foreach($arr_col[$language] as $txtid=>$value){
                                 if($arr_col[$language][$txtid] !== "" ){
                                     echo "<tr>";
-                                    echo "<td id='td_request_".$count_row."_".$count_col."'>".$request."</td>";
+                                    echo "<td class ='request' id='td_request_".$count_row."_".$count_col."'>".$request."</td>";
                                     $count_col=$count_col+1;
-                                    echo "<td id='td_textid_".$count_row."_".$count_col."'>".$txtid."</td>";
+                                    echo "<td class ='textid' id='td_textid_".$count_row."_".$count_col."'>".$txtid."</td>";
                                     $count_col=$count_col+1;
-                                    echo "<td id='td_content_".$count_row."_".$count_col."'>".$jsonData['validation_request'][$txtid]["content"]."</td>";
+                                    echo "<td class ='content_' id='td_content_".$count_row."_".$count_col."'>".$jsonData['validation_request'][$txtid]["content"]."</td>";
                                     $count_col=$count_col+1;
-                                    echo "<td id='td_displaytype_".$count_row."_".$count_col."'>".$jsonData['validation_request'][$txtid]['display_type']."</td>";
+                                    echo "<td class ='displaytype' id='td_displaytype_".$count_row."_".$count_col."'>".$jsonData['validation_request'][$txtid]['display_type']."</td>";
                                     $count_col=$count_col+1;
-                                    echo "<td id='td_kayout_".$count_row."_".$count_col."'>".$jsonData['validation_request'][$txtid]['layout']."</td>";
+                                    $firstUnderscorePos = strpos($txtid, '_');
+                                    $secondUnderscorePos = strpos($txtid, '_', $firstUnderscorePos + 1);
+                                    $pic_name = substr($txtid, 0, $secondUnderscorePos);
+                                    $link_pic_layout = "../../../../Data/ProjectData/Layout_pic/" . $pic_name . ".PNG";
+                                    echo "<td class ='layout' id='td_layout_".$count_row."_".$count_col."'>"."<img id = 'layout_pic' height = '80px' src='".$link_pic_layout."'>"."</td>";
                                     $count_col=$count_col+1;
-                                    echo "<td id='td_limitlenght_".$count_row."_".$count_col."'>".$jsonData['validation_request'][$txtid]['limit_lenght']."</td>";
+                                    echo "<td class ='limitlenght' id='td_limitlenght_".$count_row."_".$count_col."'>".$jsonData['validation_request'][$txtid]['limit_lenght']."</td>";
                                     $count_col=$count_col+1;
-                                    echo "<td id='td_numberofline_".$count_row."_".$count_col."'>".$jsonData['validation_request'][$txtid]['number_line']."</td>";
+                                    echo "<td class = 'numberofline' id='td_numberofline_".$count_row."_".$count_col."'>".$jsonData['validation_request'][$txtid]['number_line']."</td>";
                                     $count_col=$count_col+1;
-                                    echo "<td id='td_language_".$count_row."_".$count_col."'>".$jsonData['validation_request'][$txtid]['language']['US_English']['content']."</td>";
+                                    echo "<td class = 'us' id='td_language_".$count_row."_".$count_col."'>".$jsonData['validation_request'][$txtid]['language']['US_English']['content']."</td>";
                                     $count_col=$count_col+1;
-                                    echo "<td id='td_language_lam".$count_row."_".$count_col."'>".$jsonData['validation_request'][$txtid]['language'][$language]['content']."</td>";
+                                    echo "<td class = 'language_tonggle' id='td_language_tonggle".$count_row."_".$count_col."'>".$jsonData['validation_request'][$txtid]['language'][$language]['content']."</td>";
+                                    
                                     if ($count_row == 1){
-                                        echo'<td rowspan = "'.count($arr_col[$language]).'" > 
+                                        echo'<td class = "mail" rowspan = "'.count($arr_col[$language]).'" > 
                                                 <form  id="Validator_Request_form_mail_deadline"   >
                                                     <span class=" wendigo"  >
                                                     <label for="input_mail">Address Mail:</label>
                                                         <br>
-                                                            <input type="text" id="'.$language.'_mail" name="input_mail" value="'.$jsonData_add[$language]["mail"].'">
+                                                            <input type="text" id="'.$language.'_mail" name="input_mail" value="'.$jsonData_add["validator"]["mail"].'" >
                                                         <br>
                                                     </span>
                                                     <span class=" wendigo"  >
                                                     <label for="input_deadline">Deadline Request:</label>
                                                         <br>
-                                                            <input type="text" id="'.$language.'_deadline" name="input_deadline" value="'.$jsonData_add[$language]["deadline"].'" >
+                                                            <input onchange = "deadline_check(this.id)" type="date" id="'.$language.'_deadline" name="input_deadline" value="'.$jsonData_add["deadline"].'">
                                                         </span>
                                                 </form>
                                             </td>'; 
                                     }
                                 $count_row=$count_row+1;
+                                $last_request = $last_request+1;
                                 }
                             }    
                         }
@@ -122,5 +126,27 @@ foreach ($jsonData['validation_request'] as $text=>$value1)
         </tbody>
     </table>
 
-  
+    <script>
+    //Deadline day check 
+    function deadline_check(id){
+        var deadline_day = document.getElementById(id).value;
+        var now_date = Date.now();
+
+        //  Date from timestamp
+        const dateObj = new Date(now_date);
+
+        // get day,month,year 
+        const day = dateObj.getDate();
+        const month = dateObj.getMonth() + 1; 
+        const year = dateObj.getFullYear();
+
+        //"yyyy/mm/dd"
+        const formattedDate = `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
+        if(deadline_day<formattedDate){
+            alert("Please set dealine again ! (Deadline is before today )");
+            document.getElementById(id).value = "";
+            }
+        }
+</script>
+
 </html> 

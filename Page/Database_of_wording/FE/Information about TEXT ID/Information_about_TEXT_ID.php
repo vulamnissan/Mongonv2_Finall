@@ -29,15 +29,13 @@ $pageTitle5 = "Information about TEXT ID" ;
 <!-- ----------------------------backend---------------------------- -->
         </div>
         <div class="btn_back">
-                <button id="btn_back_to_Database_of_wording_content"  >
-                    ←　Back
-                </button>
+                <button id="btn_back_to_Database_of_wording_content">Back</button>
         </div>
 <!-- ------------------------------------------------------Meter Display type popup-------------------------------- -->
                                           <div  id="Information_about_TEXT_ID_Meter_Display_type"   >
                                                 <div id="modal_Meter_Display_type"  >
-                                                        <h4>Meter Display type</h4>
-                                                        <p id="lack_of_infor4"   >Please enter information</p>
+                                                        <h4>Meter Display Type</h4>
+                                                        <p id="lack_of_infor4" >Please enter information</p>
                                                           <div id="table_Meter_Display_type"  style="overflow:auto;">
  <!-- ----------------------------backend---------------------------- -->
  <?php include "../../BE/limit_length.php" ?>
@@ -52,10 +50,7 @@ $pageTitle5 = "Information about TEXT ID" ;
                                                           </button>
                                                           <button   id="Meter_Display_type_ok"   class="btn_pop"     >OK
                                                           </button>
-                                                          <!-- <button   id="test"   class="btn_pop"     >test
-                                                          </button> -->
-
-
+    
                                                       </div>
                                                 </div>
                                           </div>
@@ -67,23 +62,23 @@ $pageTitle5 = "Information about TEXT ID" ;
                                                   <p id="lack_of_infor2"   >Please enter information</p>
                                                       <div id="table_Set_Approval">
  <!-- ----------------------------backend---------------------------- -->
- <table>
-                                                              <thead>
+                                                  <table>
+                                                      <thead>
                                                               <tr>
                                                                 <th  colspan="2"  >Creator</th>
                                                               </tr>
-                                                            </thead>
-                                                          <tbody>
+                                                      </thead>
+                                                      <tbody>
                                                               <?php include "../../BE/read_user_database.php" ?>
-                                                            </tbody>
-                                                          </table>
-                                                          <table>
-                                                            <thead>
+                                                      </tbody>
+                                                  </table>
+                                                  <table>
+                                                      <thead>
                                                             <tr>
                                                               <th  colspan="2"  >MGR</th>
                                                             </tr>
-                                                          </thead>
-                                                          <tbody>
+                                                      </thead>
+                                                      <tbody>
                                                             <tr>
                                                               <td>Name</td>
                                                               <td><input id = "name_mgr" type="text" placeholder="Please enter your name"   ></td>
@@ -96,8 +91,8 @@ $pageTitle5 = "Information about TEXT ID" ;
                                                               <td>Mail</td>
                                                               <td><input id = "mail_mgr" type="text" placeholder="Please enter your mail"  ></td>
                                                             </tr>
-                                                          </tbody>
-                                                          </table>
+                                                      </tbody>
+                                                  </table>
  <!-- ----------------------------backend---------------------------- -->
                                                       </div> 
                                                       <div class="btn_ok_cancle">
@@ -122,6 +117,5 @@ $pageTitle5 = "Information about TEXT ID" ;
 <?php
   include "../../BE/set_approval.php"
 ?>
-
 
 <?php require "../../../template/footer.php"; ?>

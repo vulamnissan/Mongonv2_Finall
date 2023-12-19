@@ -1,4 +1,7 @@
-  <?php require "../../../template/header.php"; ?>
+<?php
+$pageTitle3 = "Validator request";
+?>
+ <?php require "../../../template/header.php"; ?>
   <link rel="stylesheet" href="../Validator_request.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,23 +17,19 @@
 </div>
 
 <div class="btn_back">
-    <button id="btn_back_to_home"  >
-      ← Back
-    </button>
+    <button id="btn_back_to_home">Back</button>
 
 </div>
 <div  id="Validator_Request_view"   >
   <div id="modal_Validator_Request_view"  >
       <h4 id="name_request"></h4>
               <p id="lack_of_infor" style="color: RED;"  >Please enter Password</p>
-          
                 <form id="form_Validator_Request_view"  >
                     <div   id="Validator_Request_view_form"   >
                             <span>
                               <label for="fname">Password:</label>
-                              <input   id="vali_request_pass" type="text"  name="fname">
+                              <input   id="vali_request_pass" type="password"  name="fname">
                             </span>
-
                     </div>
 
                     <div class="Validator_Request_view_btn_ok_cancle">

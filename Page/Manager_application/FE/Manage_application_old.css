@@ -1,0 +1,560 @@
+:root{
+  --backround:  #e7e9f6;
+  --backround_sub:  #cfd3ed;
+  --corlor_text:#6B4CD5 ;
+  --corlor_text_hover:#ffffff;
+  --box-shadow: -1px 2px 12px 1px #000000;
+  --box-shadow_sidebar: none;
+  --color_element:#6B4CD5 ;
+  --border_button:1px solid #D0CECE;
+  --boxshadow_hover:1px 0px 10px 6px #6B4CD5 ;
+  --border:1px solid #bfbfbf;
+  --border_h:#ffffff;
+  --boxshadow_popup: 0 0 12px 3px #949494;
+  --button_background_hover:#6B4CD5 ;
+  --button_background:#ffffff; ;
+  --border_button:1px solid #bfbfbf;
+  --button_corlortext:#ffffff;
+  --table_text: black;
+  --td_color:#ffffff;
+  --th_color: #cfd3ed;
+  --button_background_dis:#cfd3ed;
+ 
+}
+
+
+
+html,body{
+  font-family: 'Calibri','Arial','Franklin Gothic Medium', 'Arial Narrow', 'sans-serif';
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--backround);
+  display: flex;
+  flex-direction: column;
+}
+header{
+display: flex;
+height: 53px;
+padding-top: 15px;
+}
+
+
+/* -------------------------------------css for bell and account-------------------------------- */
+
+.notification-list {
+  text-align: center;
+  color: var(--corlor_text);
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 200px;
+  grid-template-rows: repeat(auto-fit, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  background-color:var(--backround_sub);
+  border:none;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: var(--box-shadow);
+}
+
+
+#account-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--backround);
+  border: none;
+  color:var(--color_element);
+  width: fit-content;
+  margin-left: 20px;
+  margin-right: 10px;
+  font-size: 150%;
+  margin-left: auto;
+}
+#account-button:hover{
+  cursor: pointer;
+  color: var(--corlor_text);
+}
+.notification-list-acc {
+  color: var(--corlor_text);
+  display: none;
+  font-size: 14px;
+  position: absolute;
+  top: 6%;
+  right: 0;
+  width: fit-content;
+  background-color:var(--backround_sub);
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: var(--box-shadow);
+
+}
+
+.notification-list-acc p {
+  font-size: 14px;
+  margin-right: auto;
+  width: fit-content;
+}
+
+.notification-list-acc button {
+  margin-top: 20px;
+  background: none;
+  color: var(--color_element);
+  border: none;
+  text-align: right;
+  width: 100%;
+}
+.notification-list-acc button:hover{
+cursor: pointer;
+}
+
+/* -------------------------------------css for bell and account-------------------------------- */
+
+/* ---------------------------CSS for sidebar---------------------------------- */
+  .sidebar {
+    z-index: 10;
+    width: 370px;
+    background-color:var(--backround_sub);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -325px; /* ẩn thanh menu bên trái */
+    transition: left 0.3s ease;
+    box-shadow: var(--box-shadow_sidebar);
+  }
+
+  .sidebar.open {
+    left: 0; /* hiển thị thanh menu bên trái */
+  }
+.menu{
+  z-index: 10;
+    color: var(--color_element);
+  }
+
+  .sidebar ul {
+    font-size: 26px;
+    list-style-type: none;
+    padding: 0;
+    margin-top: 50px;
+    margin-left: 30px;
+  }
+
+  .sidebar ul li {
+     cursor: pointer;
+    padding: 10px;
+    /* border-bottom: 1px solid #ccc; */
+  }
+  
+  .sidebar ul li a {
+ 
+    text-decoration: none;
+    color:  var(--corlor_text);
+  }
+
+  .sidebar ul li a:hover {
+    color:var(--color_element);
+    font-weight: bold;
+  }
+
+  .content {
+    margin-left: 250px;
+    padding: 20px;
+  }
+
+  .menu {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+/* ---------------------------CSS for sidebar---------------------------------- */
+/*--------------------------CSS cho các tinh nang -------------------------------*/
+
+.box:hover{
+  box-shadow: var(--button_background_hover);
+}
+.box:active{
+  background-color: var(--color_element);
+  color: white;
+}
+.box.active{
+  background-color: var(--color_element);
+  color: white;
+}
+
+
+
+#Manage_application_home_container{
+  margin-left: 50px;
+  width: auto;
+  height: 90%;
+  display: flex;
+}
+#Manage_application_home_function{
+  display: grid;
+  gap: 20px;
+  flex-basis: 20%;
+  height: 100%;
+  /* grid-template-rows: 433px 3px; */
+  justify-content:center;
+  align-items:center;
+  
+}
+.box {
+font-size: 20px;
+font-weight: 600;
+color:  var(--color_element);
+border:2px solid #c2c2c2 ;
+border-radius: 10px;
+width: 200px;
+height: 110px;
+background-color: var(--backround);
+margin-bottom: 10px;
+cursor: pointer;  
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+
+}
+
+.btn{
+  font-size: larger;
+  width: fit-content;
+  background-color:var(--backround) !important;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: 1px solid #D0CECE !important;
+  padding: 10px 20px;
+  color: var(--color_element);
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 10px;
+  font-weight: 800;
+}
+.btn:hover {
+
+  background-color: var(--color_element);
+  color:#ffffff;
+
+}
+.box_btn {
+
+    margin-right: 31px;
+    display: flex;
+    height: 5%;
+    width: 90%;
+  
+
+    flex-wrap: wrap;
+    align-content: flex-end;
+    
+}
+.box_btn_adopt_of_wording {
+  margin-left: 135px;
+    margin-right: 25px;
+    display: flex;
+    height: 0%;
+    width: 100%;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}
+.box_btn_adopt_of_wording button {
+  flex: 0 0 auto;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.box_btn_adopt_of_wording button{
+  font-size: larger;
+  width: fit-content;
+  background-color: var(--backround_sub);
+  border-radius: 10px;
+  border: none;
+  padding: 10px 20px;
+  color: var(--color_element);
+  text-decoration: none;
+  margin-left: 10px;
+  font-weight: 800;
+}
+
+.box_btn button {
+  flex: 0 0 auto;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.box_btn button{
+  font-size: larger;
+  width: fit-content;
+  background-color: var(--backround_sub);
+  border-radius: 10px;
+  border: none;
+  padding: 10px 20px;
+  color:var(--color_element);
+  text-decoration: none;
+  margin-left: 10px;
+  font-weight: 800;
+}
+#Manage_application_home_view_function{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--backround);
+  flex-basis: 80%;
+  height: 100%;
+  flex-wrap: wrap;
+  width: 1450px;
+  margin-right: 30px;
+}
+#Manage_application_button_back{
+  color: #D0CECE;
+  margin-left: 60px;
+  width: 120px;
+  height: 30px;
+  background-color: var(--color_element);
+  border-radius: 8px;
+
+}
+#Vehicle_Manage_application_viewbox{
+  color: #D0CECE;
+  margin-inline-start: -230px;
+  width: 30%;
+  height: 60%;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+}
+#Vehicle_Manage_application_viewbox.a:hover{
+cursor: pointer;
+}
+p{
+display: flex;
+height: 60%;
+justify-content: center;
+align-items: center;
+font-size: 20px;
+}
+h3{
+border-top: 0.5px solid #ffffff;
+color: var(--corlor_text);
+margin-left: 50px;
+font-size: 15px;
+font-weight: 1000;
+}
+h1{
+  text-decoration:2px underline;
+  text-underline-offset: 4px;
+  
+  margin-top: 0px;
+  margin-bottom: 20px;
+  color: var(--corlor_text);
+  margin-left: 90px;
+  font-size: 40px;
+  font-weight: 2000;
+ }
+#Vehicle_Manage_content{
+  flex: 1; /* Chiều cao tự mở rộng để điền vào không gian còn lại */
+  background-color: var(--backround);
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+  }
+
+/*--------------------------CSS cho các tinh nang -------------------------------*/
+
+.disabled {
+  height: 30% !important;
+  display: none !important;
+  box-shadow: var(--box-shadow);
+  border: none;
+  
+}
+
+
+
+#table_Manage_language_apply_vehicle{
+
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 60%;
+margin-right: 30px;
+transition: 0.25s;
+
+}
+#table_Manage_adopt_of_wording{
+display: none;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 60%;
+margin-right: 30px;
+transition: 0.25s;
+}
+table {
+  box-sizing: border-box;
+/* width: 100%; */
+border-collapse:separate;
+border-spacing: 0px;
+color: var(--table_text);
+
+}
+
+th, td {
+
+
+box-sizing: border-box;
+padding: 8px;
+text-align: left;
+border: var(--border);
+text-align: center;
+}
+td{
+
+background-color: var(--td_color);
+word-wrap: break-word;
+word-break: break-all;
+}
+
+th {
+height: 60px;
+
+background-color: var(--th_color);
+}
+
+#th_check{
+  width: 5%;
+}
+#language_add{
+  width: 20%;
+}
+.add_language{
+  background-color: var(--td_color);
+}
+
+
+#language_add  input{
+  height: 100%;
+text-align: center;
+}
+#th_check2{
+  width: 5%;
+}
+#vehicle_add input{
+  height: 100%;
+text-align: center;
+}
+
+#meter_add input{
+  height: 100%;
+text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#table_spec_wrap{
+width: 100%;
+height: 500px;
+overflow: auto;
+}
+#manage_language_apply_vehicle_table{
+  word-wrap: break-word;
+  /* width: 100%; */
+}
+#manage_language_apply_vehicle_table thead{
+  z-index: 1;
+  position: sticky;
+  top: 0;
+}     
+
+
+
+#manage_adopt_of_wording_table thead{
+  z-index: 1;
+  position: sticky;
+  top: 0;
+}
+#manage_adopt_of_wording_table{
+  word-wrap: break-word;
+  width: 100%;
+}
+
+
+
+#table_data_wrap{
+
+  width: 100%;
+  height: 500px;
+  overflow: auto;
+}
+
+.sticky-thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+
+}
+#btn_Manage_adopt_of_wording_Database_of_wording{
+  margin-left: auto;
+}
+#manage_language_apply_vehicle_table input{
+
+  background: none;
+  border: none;
+}
+#manage_adopt_of_wording_table input{
+  background: none;
+
+  border: none;
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+  #Manage_application_home_container{
+    display: block;
+  }
+  #Manage_application_home_function{
+display: flex;
+   height: fit-content;
+  }
+  
+    }
+    @media only screen and (max-width: 2560px) {
+      #Manage_application_home_view_function{
+
+     height: 80%;
+        width: 1000px;
+      }
+      
+        }
+    
+
+
+   

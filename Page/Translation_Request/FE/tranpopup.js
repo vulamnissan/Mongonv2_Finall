@@ -1,3 +1,4 @@
+//show popup set pasword
 document.addEventListener("DOMContentLoaded", function() {
     function toggleModalSet_pass() {
         var modalContainer = document.getElementById("Translation_Request_Set_password");
@@ -29,16 +30,13 @@ document.addEventListener("DOMContentLoaded", function() {
     if (createPassInput.value === "" || confirmPassInput.value === "") {
         lackOfInfoMsg.style.display = "block";
         header_setpass.style.display = "none";
-        event.preventDefault(); // Ngăn chặn hành vi mặc định
+        event.preventDefault(); 
     } else if (createPassInput.value !== confirmPassInput.value) {
         notMatchMsg.style.display = "block";
         header_setpass.style.display = "none";
-        event.preventDefault(); // Ngăn chặn hành vi mặc định
+        event.preventDefault(); 
     } else {
         removeModalClassSet_pass();
-       // Lắng nghe sự kiện click của nút ok set pass
-
-
     document.getElementById('btn_Translation_Request_Set_Approval').disabled = false;
     document.getElementById('btn_Translation_Request_Set_Approval').classList.add('btn');
  
@@ -47,8 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     document.getElementById("form_Translation_Request_Set_password").addEventListener("submit", function(event) {
-      event.preventDefault(); // Ngăn chặn hành vi mặc định
-      // Xử lý dữ liệu form hoặc thực hiện các hành động khác
+      event.preventDefault(); 
     });
     });
 
@@ -92,14 +89,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (isInputInvalid) {
     lackOfInfoMsg2.style.display = "block";
-      event.preventDefault(); // Ngăn chặn hành vi mặc định
+      event.preventDefault(); 
     } else {
     removeModalClassSet_Approval1();
     document.getElementById('btn_Translation_Request_Send_Approval').disabled = false;
     document.getElementById('btn_Translation_Request_Send_Approval').classList.add('btn');
     }
     });
-// hieenr thi table sau khi bam nut confirm
 
 var Wraper_table_Translation_Request_info = document.getElementById('Wraper_table_Translation_Request_info')
 var Wraper_table_Translation_Request = document.getElementById('Wraper_table_Translation_Request')
@@ -113,13 +109,12 @@ confim_info.addEventListener("click", function() {
     } 
     });
 
+//show popup Set_Approval
 
 
 
 
-
-
-// hieenr thi table sau khi bam nut confirm
+//show table after clicking confirm button
 
 
     function toggleModalSet_dealine() {                                                                          
@@ -159,7 +154,7 @@ confim_info.addEventListener("click", function() {
 
     if (isInputInvalid3) {
     lackOfInfoMsg3.style.display = "block";
-      event.preventDefault(); // Ngăn chặn hành vi mặc định
+      event.preventDefault(); 
     } else {
         removeModalClassSet_dealine();
 
@@ -206,7 +201,6 @@ confim_info.addEventListener("click", function() {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const button = document.getElementById('idbutton');
 const table = document.getElementById('idtable');
-// const tbody = table.getElementsByTagName('tbody')[0]; Hoang
 
 let rowCount = 0;
 
@@ -214,7 +208,7 @@ function addRow() {
   const newRow = document.createElement('tr');
   rowCount++;
 
-  newRow.id = `row${rowCount}`; // Tạo ID mới cho hàng
+  newRow.id = `row${rowCount}`;
 
   const firstRow = tbody.getElementsByTagName('tr')[0];
   if (firstRow) {

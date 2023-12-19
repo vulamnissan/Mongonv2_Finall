@@ -1,3 +1,8 @@
+<?php
+$pageTitle3 = "Validator request";
+?>
+<!--// CONTENT: FE_list_request_user
+// OUTPUT: FE_list_request_user-->
 <?php require "../../../template/header.php"; ?>
   <link rel="stylesheet" href="../Validator_request.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -21,15 +26,25 @@
 
 <div id="Wraper_table_Validator_request"  >
 <?php include "../../BE/BE_USER_Validator_request_list_request.php" ?> 
+<!-- <div id="Wraper_table_Validator_request"  >
+<table id="myTable_Translation_Request_info_validator">
+    <thead >
+      <tr>
+        <th >No</th>
+        <th >Request Number</th>
+        <th >Status</th>
+        <th >Requester</th>
+        <th >Date Issue</th>
 
-
-
-</div>
+    </thead>
+    <tbody>
+    < include "../../BE/BE_USER_Validator_request_list_request.php" ?> 
+    </tbody>
+  </table>-->
+</div> 
 
 <div class="btn_back">
-    <button id="btn_back_to_home"  >
-      ← Back
-    </button>
+    <button id="btn_back_to_home">Back</button>
 
 </div>
 

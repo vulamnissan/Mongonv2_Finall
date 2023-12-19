@@ -1,4 +1,5 @@
-
+<!--// CONTENT: FE_main_user
+// OUTPUT: FE_main_user-->
 
   <?php require "../../../template/header.php"; ?>
   <link rel="stylesheet" href="../Validator_request.css">
@@ -8,24 +9,19 @@
 <!-- -----------------content---------------------------- -->
 <div id="Validator_request_content">
         <h1>Validator request</h1>
-        <p id="mess_enter_address">Please enter the address and deadline information</p>
+        <p id="mess_enter_address">Please enter the deadline information</p>
         <p id="mess_tran2">The below translation request has been issued by Nissan Design. Please confirm and fill the translation text in the yellow box</p>
-
         <div id="containerbox3" class="box_btn" >
-
           <button   id="btn_Validator_request_back" class="btn"  >Back</button>
           <button   id="btn_Validator_request_save3"   class="btn"  >Save</button>
           <button   id="btn_Validator_request_Set_Password"   disabled  >Set Password</button>
           <button   id="btn_Validator_request_Set_Approval"  disabled >Set Approval</button>
           <button   id="btn_Validator_request_Send_Approval"   disabled  >Send Approval</button>
-
         </div>
 
 
 <div id="Wraper_table_Validator_Request_vali" >
-
-
-                                        
+                              
    <table id="myTable_Validator_Request_user">
     <thead >
       <tr>
@@ -44,24 +40,15 @@
   </table> 
 </div>
           <div id="box_langue">
-
               <button class="prev-button" onclick="previous()"> < </button>
-
                 <div class="slideshow">
-
                 <!-- include file -->
                   <?php include "../../BE/BE_USER_Validator_request_main.php" ?> 
-                  
                 </div>
-                
-
                   <button class="next-button" onclick="next()">    >  </button>
-
               </div>
   <div class="btn_back">
-    <button id="btn_back_to_home"  >
-      ← Back
-    </button>
+    <button id="btn_back_to_home">Back</button>
 
 </div>
 <!-- ------------------------------------------------------Set password-------------------------------- -->
@@ -74,18 +61,18 @@
                     <div   id="Validator_Request_form_set_password"   >
                             <span>
                               <label for="fname">Create password:</label>
-                              <input   id="create_pass" type="text"  name="fname">
+                              <input id="create_pass" type="password"  name="fname">
                             </span>
                             <span>
                               <label for="lname">Confirm password:</label>
-                              <input     id="conf_pass" type="text"  name="lname">
+                              <input id="conf_pass" type="password"  name="lname">
                             </span>
                     </div>
 
                     <div class="Validator_Request_Set_password_btn_ok_cancle">
-                                <button   id="Validator_Request_Set_password_cancel"   class="btn_pop"     >Cancel
+                                <button id="Validator_Request_Set_password_cancel"   class="btn_pop"     >Cancel
                                 </button>
-                                <button   id="Validator_Request_Set_password_ok"   class="btn_pop"     >OK
+                                <button id="Validator_Request_Set_password_ok"   class="btn_pop"     >OK
                                 </button>                                                        
                     </div>
   </div>
@@ -95,31 +82,30 @@
 <div  id="Validator_request_Set_Approval"   >
   <div id="modal_Validator_request_Set_Approval"  >
       <h4>Set Approval</h4>
-            <p id="lack_of_infor2"   >Please enter information</p>
-
+          <p id="lack_of_infor2"   >Please enter information</p>
           <div id="table_Validator_request_Set_Approval">
             <table>
               <thead>
               <tr>
-                <th  colspan="2"  >Creator</th>
+                <th  colspan="2" >Creator</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Name</td>
-                <td><input type="text" placeholder="Please enter your name" value= "<?php echo $_COOKIE['name']; ?>" ></td>
+                <td><input type="text" placeholder="Please enter your name" value= "<?php echo $_SESSION['name']; ?>" ></td>
               </tr>
               <tr>
                 <td>Sect</td>
-                <td><input type="text" placeholder="Please enter your sect" value= "<?php echo $_COOKIE['name']; ?>"></td>
+                <td><input type="text" placeholder="Please enter your sect" value= "<?php echo $_SESSION['name']; ?>"></td>
               </tr>
               <tr>
                 <td>Mail</td>
-                <td><input type="text" placeholder="Please enter your mail" value= "<?php echo $_COOKIE['email']; ?>" ></td>
+                <td><input type="text" placeholder="Please enter your mail" value= "<?php echo $_SESSION['email']; ?>" ></td>
               </tr>
               <tr>
                 <td>Company</td>
-                <td><input type="text" placeholder="Please enter your company" value= "NS" ></td>
+                <td><input type="text" placeholder="Please enter your company" value= "Nissan" ></td>
               </tr>
             </tbody>
             </table>
@@ -144,14 +130,14 @@
                   </tr>
                   <tr>
                     <td>Company</td>
-                    <td><input type="text" placeholder="Please enter your mail" id ="company_mgr"></td>
+                    <td><input type="text" placeholder="Please enter your company" id ="company_mgr"></td>
                   </tr>
                 </tbody>
               </table>
               <table>
                 <thead>
                 <tr>
-                  <th  colspan="2"  >Validator</th>
+                  <th  colspan="2" >Validator</th>
                 </tr>
               </thead>
               <tbody>
@@ -168,8 +154,8 @@
                   <td><input type="text" placeholder="Please enter your mail" id ="mail_validator" ></td>
                 </tr>
                 <tr>
-                    <td>Company</td>
-                    <td><input type="text" placeholder="Please enter your mail" id ="company_validator"></td>
+                  <td>Company</td>
+                    <td><input type="text" placeholder="Please enter your company" id ="company_validator"></td>
                   </tr>
               </tbody>
               </table>
@@ -189,20 +175,15 @@
           <label for="">Date</label>
           <input type="text">
         <div class="Translation_Request_Set_dealine_btn_ok_cancle">
-            <button   id="Translation_Request_Set_dealine_cancel"   class="btn_pop"     >Cancel
+            <button id="Translation_Request_Set_dealine_cancel" class="btn_pop"     >Cancel
             </button>
-            <button   id="Translation_Request_Set_dealine_ok"   class="btn_pop"     >OK
+            <button id="Translation_Request_Set_dealine_ok" class="btn_pop"     >OK
             </button>
         </div>
   </div>
 </div>
 <!-- ------------------------------------------------------Set deadline-------------------------------- -->
-
-
-
 </div>
-
-
 <script src="../valiaccountshow.js"></script>
 <script src="../Validator_request.js"></script>
 <script src="../Validator_request_popup.js"></script>

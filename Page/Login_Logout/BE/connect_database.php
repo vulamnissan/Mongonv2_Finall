@@ -11,4 +11,18 @@ function connect_db($servername,$database,$username,$password) {
         return $conn;
     }
 }
+function select_data($db,$table)
+{
+    $query="SELECT * FROM mongonv2.".$table;
+    $stmt = mysqli_stmt_init($db->conn);
+    if (!mysqli_stmt_prepare($stmt, $query)) {
+        die("Query preparation failed");
+    }
+    else
+    {
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+    }
+    return $result;
+}
 ?>

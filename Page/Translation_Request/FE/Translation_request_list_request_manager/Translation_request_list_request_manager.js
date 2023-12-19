@@ -1,4 +1,4 @@
-
+//-----------------------sidebar hidden function--------------------------------------
   function toggleSidebar() {
     var sidebar = document.getElementById('sidebar');
     sidebar.classList.toggle('open');
@@ -12,28 +12,29 @@
 
 
 var iconButton = document.getElementById("account-button");
-
-iconButton.addEventListener("click", function() {
 var notificationList_acc = document.getElementById("notification-list-acc");
+var isDropdownOpen = false;
 
-if (notificationList_acc.style.display === "" ||notificationList_acc.style.display === "none") {
-  notificationList_acc.style.display = "grid";
+iconButton.addEventListener("click", function(event) {
+  event.stopPropagation();
 
-  
-} else {
-  notificationList_acc.style.display = "none";
-}
+  if (!isDropdownOpen) {
+    notificationList_acc.style.display = "grid";
+    isDropdownOpen = true;
+  } else {
+    notificationList_acc.style.display = "none";
+    isDropdownOpen = false;
+  }
 });
-///////////////////////////////////////////////////////////////////////
-//All this code is just for smooth table scrolling/////////////////////
-///////////////////////////////////////////////////////////////////////
+document.addEventListener("click", function(event) {
+  var targetElement = event.target;
+  var isClickedInside = notificationList_acc.contains(targetElement) || iconButton.contains(targetElement);
 
-///////////////////////////////////////////////////////////////////////
-//All this code is just for smooth table scrolling/////////////////////
-///////////////////////////////////////////////////////////////////////
-
-
-
+  if (!isClickedInside) {
+    notificationList_acc.style.display = "none";
+    isDropdownOpen = false;
+  }
+});
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////Function to set the order in which buttons are pressed/////////////////////////////////////////////////////////////////////////////////////////////
@@ -52,9 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var re_viewButton = document.getElementsByClassName('list_request');
 
-  // Lặp qua danh sách các phần tử và gán sự kiện click cho mỗi phần tử
   for (var i = 0; i < re_viewButton.length; i++) {
-    // alert(i);
     re_viewButton[i].addEventListener("click", toggleModal_re_view);
   }
   
@@ -64,27 +63,23 @@ document.addEventListener("DOMContentLoaded", function() {
   buttonA6.addEventListener("click", removeModalClass_review);
 
   var buttonB6 = document.getElementById("Translation_request_view_ok");
-  buttonB6.addEventListener("click", function(event) { // khi an nut ok de kiem tra password
+  buttonB6.addEventListener("click", function(event) { 
   var vali_request_pass = document.getElementById("Translation_request_pass");
   var lackOfInfoMsg = document.getElementById("lack_of_infor");
   var accountType = document.getElementById("account_type");
 
   lackOfInfoMsg.style.display = "none";
- // ============ Hoang check pass =============
     if (vali_request_pass.value === "" ) {
           lackOfInfoMsg.style.display = "block";
     
-          event.preventDefault(); // Ngăn chặn hành vi mặc định
+          event.preventDefault(); 
       }
     else{
-      // check pass
       var request=document.getElementById("txt_request").innerHTML;
       var user_ID = document.getElementById("user_ID").innerHTML;
-      // var result ="";
       $(document).ready(function(){
         $.post("../../BE/Check_pass_manager.php", {pass:vali_request_pass.value ,rq:request}, function(data){
-          // result = data;
-          if(data == "ok" && accountType.textContent.includes("manager")) // pass dung 
+          if(data == "ok" && accountType.textContent.includes("manager")) 
           {
               window.location.href = "../../FE/Translation_Request.php?flag=2&rq="+request+"&id_user="+user_ID+"&checkshow=request";
           }
@@ -104,14 +99,16 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   document.getElementById("form_Translation_request_view").addEventListener("submit", function(event) {
-    event.preventDefault(); // Ngăn chặn hành vi mặc định
-    // Xử lý dữ liệu form hoặc thực hiện các hành động khác
+    event.preventDefault(); 
   });
   });
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////Function to set the order in which buttons are pressed/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////xu ly popup////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-
+////////////////////////////////////sticky thead
 
   window.addEventListener('DOMContentLoaded', function() {
       var table1 = document.getElementById('myTable_Translation_request_info_manager');
@@ -124,14 +121,6 @@ document.addEventListener("DOMContentLoaded", function() {
       });
       });
 
-
-//=========== Hoang JS=============
-
     function show_pass_rq(id,rq){
       document.getElementById("txt_request").innerHTML=rq;
     }
-
-    // buttonB6.addEventListener("click", function(event) {
-    //     var pass = document.getElementById("Translation_request_pass").innerHTML;
-    //     console.log(pass);
-    // })
